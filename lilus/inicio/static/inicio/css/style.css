@@ -255,7 +255,8 @@ ul, ol{
 .fotoPortada{
 	background: url(/static/inicio/img/portada.jpg) no-repeat;
 	background-size: cover;
-	height: 500px
+	background-position: center;
+	height: calc(100vh - 125px);
 }
 
 
@@ -265,7 +266,11 @@ ul, ol{
 }
 
 .nuevaColeccion{
-	margin:200px auto;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%,-50%);
 	width: 260px;
 	text-align:center;
 }
@@ -344,7 +349,7 @@ ul, ol{
 .nombreColeccion{
 	width: 100%;
 	text-align: center;
-	margin: 5px 0 10px 0;
+	/*margin: 5px 0 10px 0;*/
 }
 
 .nombreColeccion p{
@@ -377,22 +382,18 @@ ul, ol{
 }
 @media (max-width: 767px) {
 	.fotoAlbum{
-		height: 300px;
+		height: 260px;
 	}
 
 	.fotoPortada{
 		background: url(/static/inicio/img/portadaMovil.jpg) no-repeat;
 		background-size: cover;
-		background-position: 50% center !important;
+		background-position: center !important;
 		height: calc(100vh - 50px)
 	}
 
 	.fotoPortada2{
 		height: 350px;
-	}
-
-	.nuevaColeccion{
-		margin:250px auto;
 	}
 
 	.coleccion{

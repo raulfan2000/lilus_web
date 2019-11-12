@@ -30,7 +30,7 @@
 		</div>
 		<img src="{% static 'inicio/img/logo.png' %}" alt="lilus" class="logoPortada mb-3" id="menu" onclick="window.location ='{% url 'inicio'%}';">
 		<ul class=" navegadorOrdenador">
-	    <li><a>VESTIDOS DE COMUNIÓN</a>
+	    <li><a href="">VESTIDOS DE COMUNIÓN</a>
 				<ul>
 					<li><a  href="{% url 'comunion2019'%}">COMUNIÓN 2019</a></li>
 					<li><a href="{% url 'comunion2018'%}">COMUNIÓN 2018</a></li>
@@ -43,7 +43,7 @@
 				</ul>
 			</li>
 	    <li><a href="{% url 'bautizo'%}">VESTIDOS DE BAUTIZO</a></li>
-			<li><a>EVENTOS</a>
+			<li><a href="">EVENTOS</a>
 				<ul>
 					<li><a href="{% url 'eventoValencia2019'%}">VALENCIA 2019</a></li>
 				</ul>
@@ -70,7 +70,7 @@
 
   <nav id="sidebar">
 		<ul class="menuMovil">
-
+			<li><a href="{% url 'inicio'%}">· INICIO</a></li>
 			<li><a class="text-danger">VESTIDOS DE COMUNIÓN</a>
 				<ul>
 					<li><a href="{% url 'comunion2019'%}">· COMUNIÓN 2019</a></li>
