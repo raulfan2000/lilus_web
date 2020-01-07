@@ -9,6 +9,7 @@
 	<link rel="icon" href="{% static 'inicio/img/favicon.png'%}" type="image/x-icon">
   <link rel="shortcut icon" href="{% static 'inicio/img/favicon.png'%}" type="image/x-icon">
   <link rel="icon" href="{% static 'inicio/img/favicon.png'%}" type="image/png">
+	<meta name="theme-color" content="#000"/>
 	<title>lilus | Vestidos de niña </title>
 
 	<!-- css propio -->
@@ -16,63 +17,76 @@
 	<!-- css bootstrap -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<!-- css otras fuentes -->
-	<link href="https://fonts.googleapis.com/css?family=Karla|Nanum+Gothic&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|EB+Garamond|Karla|Lato&display=swap" rel="stylesheet">
+
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css" type="text/css"/>
 	<script src="https://kit.fontawesome.com/ebc0e8d4d6.js"></script>
 
 </head>
 <body>
+	<div class="cookiesms shadow-lg " id="cookie1">
+	  Esta web utiliza cookies,
+	  Si continuas navegando estás aceptándolas. <a href="">Leer más</a>
+	  <div onclick="controlcookies()" class="botonCookie"><i class="fas fa-times"></i></div>
+	</div>
+
 
 	<!--- navegador ordenador -->
-	<div class="pt-3 pb-2 text-center shadow-sm navegadorOrdenadorDiv" style="background: #fff;" id="nav">
-		<div class="clientes">
-			<i class="fas fa-user-lock"></i>
+	<div class="pt-3 pb-2 r-2 text-center border-bottom navegadorOrdenadorDiv" style="background: #fff;" id="nav">
+
+		<div class="busqueda">
+			<form action="{% url 'buscador' %}">
+				<div class="busquedaLupa"><i class="fas fa-search"></i></div>
+				<input type="text" placeholder="Buscar...">
+				<button type="submit" class="buscarBoton"><i class="fas fa-search"></i></button>
+			</form>
 		</div>
+
 		<img src="{% static 'inicio/img/logo.png' %}" alt="lilus" class="logoPortada mb-3" id="menu" onclick="window.location ='{% url 'inicio'%}';">
 		<ul class=" navegadorOrdenador">
 	    <li><a href="">VESTIDOS DE COMUNIÓN</a>
 				<ul>
+					<div class="lineaSeparadoraMenu"></div>
+					<li><a  href="{% url 'comunion2020'%}">COMUNIÓN 2020</a></li>
 					<li><a  href="{% url 'comunion2019'%}">COMUNIÓN 2019</a></li>
 					<li><a href="{% url 'comunion2018'%}">COMUNIÓN 2018</a></li>
+					<!-- foto del menu -->
+					<div class="imagenMenu" style="background: url({% static 'inicio/img/verano2018/1.jpg'%}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
 				</ul>
 			</li>
 	    <li><a href="">VESTIDOS DE VERANO</a>
 				<ul>
+					<div class="lineaSeparadoraMenu"></div>
 					<li><a href="{% url 'verano2019'%}">VERANO 2019</a></li>
 					<li><a href="{% url 'verano2018'%}">VERANO 2018</a></li>
+					<!-- foto del menu -->
+					<div class="imagenMenu" style="background: url({% static 'inicio/img/verano2018/2.jpg'%}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
 				</ul>
 			</li>
 	    <li><a href="{% url 'bautizo'%}">VESTIDOS DE BAUTIZO</a></li>
-			<li><a href="">EVENTOS</a>
-				<ul>
-					<li><a href="{% url 'eventoValencia2019'%}">VALENCIA 2019</a></li>
-				</ul>
-			</li>
-			<li><a href="{% url 'contacto'%}">CONTACTO</a></li>
+			<li><a href="">EVENTOS</a></li>
+			<li style="border: 1px solid #000 "><a href="{% url 'contacto'%}" class="color: #000">CONTACTO</a></li>
 		</ul>
 	</div>
 	<!--- navegador movil -->
-
-	<div class="navegadorMovilDiv fixed-top border-bottom">
+	<div class="navegadorMovilDiv fixed-top shadow-sm ">
 		<img src="{% static 'inicio/img/logo.png' %}" alt="lilus" class="logoPortadaMovil" onclick="window.location ='{% url 'inicio'%}';">
-
 		<div class="menuPalos" id="ponerMenu">
 			<div class="menuPalo1"></div>
 			<div class="menuPalo2"></div>
 			<div class="menuPalo3"></div>
 		</div>
-
-		<div class="clientes">
-			<i class="fas fa-user-lock"></i>
+		<div class="busqueda2" id="activarBuscadorMovil">
+			<i class="fas fa-search"></i>
 		</div>
-
 	</div>
 
-  <nav id="sidebar">
+	<nav id="sidebar">
 		<ul class="menuMovil">
 			<li><a href="{% url 'inicio'%}">· INICIO</a></li>
 			<li><a class="text-danger">VESTIDOS DE COMUNIÓN</a>
 				<ul>
+					<li><a href="{% url 'comunion2019'%}">· COMUNIÓN 2020</a></li>
 					<li><a href="{% url 'comunion2019'%}">· COMUNIÓN 2019</a></li>
 					<li><a href="{% url 'comunion2018'%}">· COMUNIÓN 2018</a></li>
 				</ul>
@@ -87,21 +101,70 @@
 
 			<li><a href="{% url 'bautizo'%}">· VESTIDOS DE BAUTIZO</a></li>
 
-			<li><a>EVENTOS</a>
-				<ul>
-					<li><a href="{% url 'eventoValencia2019'%}">· VALENCIA 2019</a></li>
-				</ul>
-			</li>
+			<li><a href="{% url 'eventoValencia2019' %}">· EVENTOS</a></li>
 
 			<li><a href="{% url 'contacto'%}">· CONTACTO</a></li>
 
 		</ul>
 	</nav>
+
+	<!-- buscador para movil -->
+
+	<div class="buscadormovil" id="buscadorMovil">
+		<div class="cerrarBuscadorMovil" id="cerrarBuscadorMovil">
+			<div class="palo1 active"></div>
+			<div class="palo2 active"></div>
+		</div>
+
+		<div class="col-12 p-4 mt-5">
+			<form action="{% url 'buscador' %}">
+				<input type="text" class="formularioContacto busquedaMotorCampo" placeholder="Buscar...">
+				<button class="btn-dark btn border-0 rounded-0 float-right px-md-5 py-md-3 px-3 py-2" type="submit"><i class="fas fa-search text-white"></i></button>
+			</form>
+			<!-- opciones -->
+			<p class="textoFormulario mb-2 mt-3">Prueba con:</p>
+			<div class="divBusquedaPredeterminada row m-0">
+				<div class="busquedaPredeterminada active">
+					Todos
+				</div>
+				<div class="busquedaPredeterminada">
+					Comunión
+				</div>
+				<div class="busquedaPredeterminada">
+					2020
+				</div>
+				<div class="busquedaPredeterminada">
+					2019
+				</div>
+				<div class="busquedaPredeterminada">
+					Comunión 2020
+				</div>
+				<div class="busquedaPredeterminada">
+					Verano
+				</div>
+				<div class="busquedaPredeterminada">
+					Verano 2020
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- contenido -->
 	<div class="row ml-0 mr-0 pb-3" id="fondo">
 		{% block content %}
 		{% endblock %}
 	</div>
+
+
+	<script>
+		if (localStorage.controlcookie > 0){
+			document.getElementById('cookie1').style.display = 'none';
+		}
+		function controlcookies() {
+			localStorage.controlcookie = (localStorage.controlcookie || 0);
+			localStorage.controlcookie++;
+			cookie1.style.display='none';
+		}
+	</script>
 
 
 
@@ -129,12 +192,22 @@
 
 	<script>
 		$(document).click(function () {
-			if ($('#sidebar').hasClass('active')){
+			if($('#sidebar').hasClass('active')){
 				$('#ponerMenu').on('click', function () {
 						$('#sidebar').removeClass('active');
 						$('.menuPalo1').removeClass('active');
 						$('.menuPalo2').removeClass('active');
 						$('.menuPalo3').removeClass('active');
+				});
+
+				$('#activarBuscadorMovil, .busqueda').on('click', function () {
+						$('#buscadorMovil').addClass('active');
+						$('html,body').css('overflow', 'hidden');
+				});
+
+				$('#cerrarBuscadorMovil').on('click', function () {
+						$('#buscadorMovil').removeClass('active');
+						$('html,body').css('overflow', 'scroll');
 				});
 			}
 			else{
@@ -144,37 +217,45 @@
 						$('.menuPalo2').addClass('active');
 						$('.menuPalo3').addClass('active');
 				});
+
+				$('#activarBuscadorMovil, .busqueda').on('click', function () {
+						$('#buscadorMovil').addClass('active');
+						$('html,body').css('overflow', 'hidden');
+				});
+
+				$('#cerrarBuscadorMovil').on('click', function () {
+						$('#buscadorMovil').removeClass('active');
+						$('html,body').css('overflow', 'scroll');
+				});
+
 			}
 		});
 	</script>
-
 </body>
 
 <!-- Footer -->
-<footer class="page-footer font-small bg-dark pt-4">
+<footer class="page-footer font-small pt-4">
   <div class="container text-center text-md-left">
     <div class="row">
-      <div class="col-md-6 mt-md-0 mt-3">
-        <h5 class="text-uppercase text-light" style="font-size: 15px;">PÁGINAS</h5>
+			<div class="col-md-3"></div>
+      <div class="col-md-3 mt-md-0 mt-3">
+        <h5 class="text-uppercase text-light" style="font-size: 15px;">INFORMACIÓN</h5>
         <p class="text-light" style="font-size: 12px;">
-					Inicio<br>
-			    Vestidos de comunión<br>
-			    Vestidos de verano<br>
-			    Vestidos de bautizo<br>
-					Contacto <br>
-					Dónde comprar<br>
+					Aviso legal<br>
+			    Politica de cookies<br>
+			    Contacto<br>
         </p>
       </div>
-			<div class="col-md-6 mt-md-0 mt-3">
-        <h5 class="text-uppercase text-light" style="font-size: 15px;">INFORMACIÓN AL CLIENTE</h5>
+			<div class="col-md-3 mt-md-0 mt-3">
+        <h5 class="text-uppercase text-light" style="font-size: 15px;">CONTACTO</h5>
         <p class="text-light" style="font-size: 12px;">
-					Politica de privacidad <br>
-					Politica de cookies <br>
+					E-mail: <a href="mailto:lilus@lilus.es" style="color:#fff; font-size: 14px">lilus@lilus.es</a> <br>
+					Teléfono: <a href="tel:+34965487509" style="color:#fff;font-size: 14px">965 48 75 09</a> <br>
         </p>
       </div>
 
     </div>
   </div>
-  <div class="footer-copyright text-center py-3 text-light">© 2019 - Lilus S.A.</div>
+  <div class="footer-copyright text-right p-3 text-light" style="font-size: 12px">© 2020 - Lilus S.A.</div>
 </footer>
 </html>

@@ -1,8 +1,12 @@
 
 body * {
-	font-family: 'Nanum Gothic', sans-serif;
+	font-family: 'lato', sans-serif;
 	color: #424242;
 
+}
+input:focus, button:focus{
+	outline: 0!important;
+	box-shadow: 0 0 0 0 !important;
 }
 ul, ol{
 	list-style: none;
@@ -13,6 +17,57 @@ ul, ol{
 		margin-top: 50px;
 	}
 }
+
+.page-footer{
+	background: #000;
+}
+h1{
+	font-family: 'karla', sans-serif;
+	color: #000;
+	font-weight: 700;
+}
+
+
+.cookiesms{
+	width:260px;
+	height:120px;
+	color: #424242;
+	bottom:15px;
+	left: 15px;
+	border-radius: 0px;
+	position:fixed;
+	background-color: #fff;
+	z-index:998;
+	padding: 30px;
+	text-align: left;
+	font-size: 14px;
+	border: 1px solid #f2f2f2
+}
+.botonCookie{
+	position: absolute;
+	top: 6px;
+	right: 6px;
+	cursor: pointer;
+	font-size: 16px;
+	color: #747474;
+	font-weight: 200;
+}
+.botonCookie i{
+color: #747474;
+}
+
+@media (max-width: 767px){
+	.cookiesms{
+		width: calc(100% - 20px);
+		bottom:10px;
+		left: 10px;
+		font-size: 12px;
+		text-align: left;
+		height: 90px;
+		padding: 25px;
+	}
+}
+
 /* navegador ordenador */
 /* navegador ordenador */
 /* navegador ordenador */
@@ -40,15 +95,69 @@ ul, ol{
 	border-radius: 0!important;
 	padding: 0;
 }
-.clientes{
-	width: 20px!important;
-	height: 20px !important;
+.busqueda{
+	width: 120px!important;
+	height: 30px !important;
 	text-align: center;
 	position: absolute;
 	top: 20px;
 	right: 20px;
 	border: 0px!important;
+	background: #fff;
 }
+.busqueda input{
+	position: absolute;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	padding:5px 5px 5px 20px;
+	font-size: 14px;
+	border: 0px;
+	border-bottom: 1px solid #c3c3c3;
+	transition: .5s;
+	z-index: 997;
+	background-color: #fff;
+}
+.busqueda input:focus{
+	border-bottom: 1px solid #000;
+	transition: .5s;
+	padding:5px 1px;
+	background-color: #fff;
+	z-index: 999;
+	left: -30px;
+	height: 100%;
+	width: calc(100%);
+}
+.busquedaLupa{
+	position: absolute;
+	left: 0px;
+	bottom: 8px;
+	font-size: 12px;
+	z-index: 998;
+	width: 16px;
+	height: 16px;
+	z-index: 998!important;
+}
+.busquedaLupa i{
+	color: #8c8c8c;
+}
+.buscarBoton{
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	font-size: 10px;
+	z-index: 996!important;
+	width: 25px;
+	height: 25px;
+	border-radius: 0px;
+	background: #424242;
+	padding-left: 6px;
+	border: 0;
+}
+.buscarBoton i{
+	color: #fff !important;
+}
+
 
 .navegadorOrdenador > li{
 	width:19.6%;
@@ -59,6 +168,7 @@ ul, ol{
 	border-radius: 0!important;
 }
 
+
 .navegadorOrdenador li a{
 	color: #424242;
 	text-decoration: none;
@@ -67,30 +177,55 @@ ul, ol{
 }
 
 .navegadorOrdenador a:hover{
-	color: #747474
+	color: #000;
+	font-weight: 900;
+}
+
+.lineaSeparadoraMenu{
+	width: 385px;
+	height: 1px;
+	background: #dee2e6;
+	position: absolute;
+	top: 16px;
+	left: 0;
 }
 
 .navegadorOrdenador li ul{
 	display: none;
 	position: absolute;
-	width: 185px;
+	width: calc(185px + 200px);
+	min-height: 220px;
 	background: #fff;
 	text-align: left;
-	margin:0;
-	list-style:none;
+	list-style: none;
 	border-radius: 0!important;
 	z-index: 9999;
-	padding: 10px 10px ;
+	padding: 20px 200px 10px 10px;
+	transition: 1s;
+	-webkit-box-shadow: 0px 4px 5px -5px rgba(116,116,116,1);
+	-moz-box-shadow: 0px 4px 5px -5px rgba(116,116,116,1);
+	box-shadow: 0px 4px 5px -5px rgba(116,116,116,1);
 }
 
+.imagenMenu{
+	position: absolute;
+	height: 180px;
+	width: 220px;
+	background: #000;
+	right: 10px;
+	top: 30px;
+}
 .navegadorOrdenador li ul li{
 	padding: 5px;
+	width: 130px;
+	border-bottom: 1px solid #f2f2f2;
 }
 .navegadorOrdenador li ul li a{
 	font-weight: 600
 }
 .navegadorOrdenador li:hover > ul{
 	display: block;
+	transition: 1s;
 }
 
 
@@ -118,7 +253,7 @@ ul, ol{
 		width: 100%;
 	}
 
-	.clientes{
+	.busqueda2 {
 		width: 20px!important;
 		height: 20px !important;
 		text-align: center;
@@ -128,11 +263,18 @@ ul, ol{
 		float: right;
 		border: 0px!important;
 	}
+
+	.busqueda2 i{
+		color: #8c8c8c;
+	}
+
+
+
 }
 
 .logoPortadaMovil{
-	height: 24px;
-	margin: 13px;
+	height: 30px;
+	margin: 10px;
 	float: left;
 }
 .menuPalos{
@@ -253,10 +395,41 @@ ul, ol{
 /* inicio */
 
 .fotoPortada{
-	background: url(/static/inicio/img/portada.jpg) no-repeat;
+	background: url(/static/inicio/lilusWeb.mov) no-repeat;
 	background-size: cover;
 	background-position: center;
 	height: calc(100vh - 125px);
+}
+
+
+.videoPortada{
+	height: calc(100vh - 125px);
+	width: 100vw;
+	overflow: hidden;
+	z-index: 997;
+}
+.videoPortada video{
+	min-width: 100%;
+	min-height: 100%;
+	height: auto;
+}
+
+.videoContainer{
+	width: 100%;
+  height: calc(100vh - 125px);
+	background: url(/static/inicio/lilusWeb.png) no-repeat;
+	background-size: cover;
+	background-position:center !important;
+}
+
+.fondoNegro{
+	height: calc(100vh - 125px);
+	width: 100vw;
+	z-index: 998;
+	background-color: rgba(0, 0, 0, 0.1);
+	position: absolute;
+	left: 0;
+	top: 0;
 }
 
 
@@ -265,43 +438,54 @@ ul, ol{
 	height: 500px;
 }
 
+
+
 .nuevaColeccion{
 	position: absolute;
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
 	-webkit-transform: translate(-50%,-50%);
-	width: 260px;
+	width: auto;
 	text-align:center;
 }
 
 .nuevaColeccion p{
 	color: #ffff;
+	margin-bottom: 10px;
+  margin-top: 10px;
+  font-size: 40px;
+	font-family: 'Cormorant Garamond', serif;
+}
+
+.nuevaColeccion h5{
+	color: #ffff;
 	margin-bottom: 20px;
   margin-top: 10px;
-  font-size: 16px;
-  letter-spacing: 3px;
+  font-size: 20px;
+	font-family: 'karla', serif;
 }
 
 .nuevaColeccion a{
 	color: #171d23;
 	background: white;
-	width: 260px;
-	font-size: 14px;
-	letter-spacing: 3px;
+	width: 200px;
+	font-size: 12px;
+	letter-spacing: 2px;
 }
 .coleccion{
 	margin:250px auto;
 	width: 300px;
 	text-align:center;
+
 }
 
 .coleccion a{
 	color: #171d23;
 	background: white;
-	width: 260px;
-	font-size: 14px;
-	letter-spacing: 3px;
+	width: 200px;
+	font-size: 12px;
+	letter-spacing: 2px;
 }
 
 .menuVisible{
@@ -402,5 +586,249 @@ ul, ol{
 
 	#baguetteBox-overlay .full-image img {
 	   max-width: calc(100% - 30px)!important;
+	}
+
+	.videoPortada{
+		height:auto;
+		width: 100vw;
+		overflow: auto;
+		overflow-x: hidden;
+		z-index: 997;
+
+	}
+
+	.videoContainer{
+		width: 100%;
+		height: 250px;
+		overflow: hidden;
+		position: relative;
+	}
+
+	.videoContainer video{
+		width: 125%;
+		height: auto;
+		margin: 0 auto;
+		position: absolute;
+		top: 0 !important;
+		left: 0 !important;
+		transform: none !important;
+	}
+
+	.fondoNegro{
+		height: 160px;
+		width: 100vw;
+		z-index: 998;
+		background-color: rgba(0, 0, 0, 0);
+		position: relative;
+		left: 0;
+		top: 0;
+		float: left;
+		margin-bottom: 20px;
+	}
+
+
+
+	.nuevaColeccion{
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		-webkit-transform: translate(-50%,-50%);
+		width: 100%;
+		text-align:center;
+	}
+
+	.nuevaColeccion p{
+		color: #000;
+		margin-bottom: 0px;
+	  margin-top: 10px;
+	  font-size: 22px;
+		font-family: 'EB Garamond', serif;
+	}
+
+	.nuevaColeccion h5{
+		color: #000;
+		margin-bottom: 15px;
+		margin-top: 5px;
+		font-size: 14px;
+		font-family: 'Karla', serif;
+	}
+
+	.nuevaColeccion a{
+		color: #fff;
+		background: #000;
+		width: 180px;
+		font-size: 12px;
+		letter-spacing: 2px;
+	}
+}
+
+
+
+.textoFormulario{
+	color: #19110b;
+  display: block;
+  margin: 0 0 .5rem;
+  font-weight: 400;
+  font-size: .875rem;
+  line-height: 1.4285714285714286;
+  letter-spacing: .4px;
+	font-family: 'Karla', serif;
+}
+.formularioContacto{
+	background: #fff;
+    background-clip: padding-box;
+    border: 1px solid #e7e7e7;
+    border-radius: 0;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #19110b;
+    height: 3rem;
+    text-align: left;
+    font-family: "karla",sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 2;
+    letter-spacing: .4px;
+    transition: border .3s cubic-bezier(0.39,0.575,0.565,1);
+    padding: 0 1rem;
+    line-height: 3rem;
+		width: 100%;
+}
+
+.formularioContactoTel{
+	width: 100px !important;
+	float: left;
+}
+.formularioContactoTel2{
+	width: calc(100% - 110px) !important;
+	margin-left: 10px;
+	float: left;
+}
+
+.formalioContactoArea{
+	height: 200px;
+	resize: none;
+}
+
+@media (max-width: 767px) {
+	.formularioContactoTel{
+		width: 80px !important;
+	}
+	.formularioContactoTel2{
+		width: calc(100% - 90px) !important;
+	}
+}
+
+.busquedaMotorCampo{
+	width: calc(100% - 112px - 10px);
+	margin-right: 10px;
+	height: 56px!important;
+}
+
+@media (max-width: 767px) {
+	.busquedaMotorCampo{
+		width: calc(100% - 48px - 5px);
+		margin-right: 5px;
+		height: 40px!important;
+	}
+}
+
+
+
+
+.buscadormovil{
+	height: auto;
+	width: 360px;
+	background: #fff;
+	position: fixed;
+	top: 10px;
+	right: -100vw;
+	z-index: 9999999;
+	transition: all 1s;
+}
+
+.buscadormovil.active{
+	right: 10px;
+	transition: all 1s;
+}
+
+
+.divBusquedaPredeterminada{
+	height: auto;
+	width: 100%;
+}
+
+.busquedaPredeterminada{
+	width: auto;
+	height: 40px;
+	border: 1px solid #424242;
+	border-radius: 0px;
+	float: left;
+	padding: 10px 15px;
+	font-size: 12px;
+	margin-right: 7px;
+	margin-bottom: 7px;
+}
+
+.busquedaPredeterminada.active{
+	background-color: #424242;
+	color: #fff;
+}
+
+.cerrarBuscadorMovil{
+	width: auto;
+	height: auto;
+	top: 1.5rem;
+	right: 1rem!important;
+	position: absolute;
+	font-size: 18px;
+	margin: 0 1.5rem;
+}
+
+
+
+.palo1.active{
+	width: 20px;
+	transform: rotate(45deg);
+  transition: all 0.3s;
+	position: absolute;
+	margin-top: 10px;
+	height: 1px;
+	background: #424242;
+	float: right;
+	position: absolute;
+}
+.palo2.active{
+	width: 20px!important;
+	transform: rotate(-45deg);
+  transition: all 0.3s;
+	position: absolute;
+	margin-top: 10px;
+	height: 1px;
+	background: #424242;
+	float: right;
+	position: absolute;
+}
+
+
+@media (max-width: 767px) {
+
+	.buscadormovil{
+		height: 100vh;
+		width: 100vw;
+		background: #fff;
+		position: fixed;
+		top: 0;
+		right: -100vw;
+		z-index: 9999999;
+		transition: all 1s;
+	}
+
+	.buscadormovil.active{
+		left: 0;
+		transition: all 1s;
 	}
 }

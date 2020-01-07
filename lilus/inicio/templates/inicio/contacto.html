@@ -1,4 +1,81 @@
 {% extends "inicio/base.html" %}
 {% load static %}
 {% block content %}
+<style>
+	body{
+		background:#f8f9fa!important
+	}
+</style>
+<div class="container">
+	<div class="row p-3 p-md-0">
+		<div class="col-md-9 mt-md-3 p-0">
+			<h1>CONTACTAR</h1>
+		</div>
+		<div class="col-md-9 bg-white p-4">
+			<small>
+				Por favor, proporcione la siguiente información y nuestro servicio de atención al cliente responderá a su consulta lo antes posible.
+				También puede visitar nuestra <a href="#">página</a> de Facebook.
+			</small>
+		</div>
+
+		<div class="col-md-9 mt-5 p-0">
+			<h5>FORMULARIO</h5>
+		</div>
+		<div class="col-md-9 bg-white p-4">
+			<div class="row m-0">
+
+				<div class="col-12 p-0">
+					<p class="textoFormulario mb-1">Nombre</p>
+					<input type="text" class="formularioContacto">
+				</div>
+
+				<div class="col-12 p-0 mt-4">
+					<p class="textoFormulario mb-1">Apellidos</p>
+					<input type="text" class="formularioContacto">
+				</div>
+
+				<div class="col-12 p-0 mt-4">
+					<p class="textoFormulario mb-1">Correo electrónico</p>
+					<input type="email" class="formularioContacto">
+				</div>
+
+				<div class="col-6 p-0 mt-4">
+					<p class="textoFormulario mb-1">País</p>
+					<select class="formularioContacto">
+						<option value="España">España</option>
+						<option value="Italia">Italia</option>
+					</select>
+				</div>
+
+				<div class="col-md-9 p-0 mt-4">
+					<p class="textoFormulario mb-1">Teléfono</p>
+					<select class="formularioContacto formularioContactoTel">
+						<option value="España">+34</option>
+						<option value="Italia">+35</option>
+					</select>
+					<input type="number" class="formularioContacto formularioContactoTel2">
+				</div>
+
+				<div class="col-md-6 p-0 mt-4">
+					<p class="textoFormulario mb-1">Idioma</p>
+					<select class="formularioContacto">
+						<option value="España">Español</option>
+						<option value="Italia">Italiano</option>
+					</select>
+				</div>
+
+				<div class="col-12 p-0 mt-4">
+					<p class="textoFormulario mb-1">Mensaje</p>
+					<textarea name="name" rows="8" cols="80" class="formularioContacto formalioContactoArea"></textarea>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-9 p-0">
+				<button class="btn-dark btn border-0 rounded-0 float-right mt-3 px-5 py-3" type="submit">Enviar formulario</button>
+		</div>
+
+
+
+	</div>
+</div>
 {% endblock %}
