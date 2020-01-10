@@ -24,6 +24,37 @@ ul, ol{
 	list-style: none;
 }
 
+
+.alerta{
+  width: auto!important;
+  position: fixed!important;
+  bottom: 0px!important;
+  z-index: 99999!important;
+  right: 10px;
+	padding: 10px 20px;
+	border-radius: 0px;
+	margin: 10px;
+	border: 1px solid #424242!important;
+	background-color: #424242!important;
+	color: #fff!important;
+}
+
+
+@media (max-width: 767px){
+	.alerta{
+		width: calc( 100vw - 40px)!important;
+		position: fixed!important;
+		bottom: 0px!important;
+		z-index: 99999!important;
+		right: 20px;
+		border: 1px solid #424242!important;
+		background-color: #424242!important;
+		color: #fff!important;
+	}
+}
+
+
+
 #fondo{
 	min-height: calc(100vh - 125px - 170px);
 }
@@ -244,7 +275,7 @@ color: #747474;
 	margin-top: 125px!important;
 }
 .navegadorOrdenador{
-	width: 863px;
+	width: 800px;
 	margin:0 auto;
 	list-style:none;
 	overflow:hidden;
@@ -566,7 +597,7 @@ color: #747474;
 .videoContainer{
 	width: 100%;
   height: calc(500px);
-	background: url(/static/inicio/lilusWeb.png) no-repeat;
+	background: url(/static/inicio/lilusWeb.jpg) no-repeat;
 	background-size: cover;
 	background-position:center !important;
 }

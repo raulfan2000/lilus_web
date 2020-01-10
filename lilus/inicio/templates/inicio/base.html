@@ -19,12 +19,20 @@
 	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|EB+Garamond|Karla|Lato&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css" type="text/css"/>
 	<script src="https://kit.fontawesome.com/ebc0e8d4d6.js"></script>
+	<!-- Etiqueta global de sitio (gtag.js) de Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
+    gtag('config', 'UA-117040594-1');
+  </script>
 </head>
 <body>
 	<div class="cookiesms shadow-lg " id="cookie1">
 	  Esta web utiliza cookies,
-	  Si continuas navegando estás aceptándolas. <a href="">Leer más</a>
+	  Si continuas navegando estás aceptándolas. <a href="{% url 'cookies' %}">Leer más</a>
 	  <div onclick="controlcookies()" class="botonCookie"><i class="fas fa-times"></i></div>
 	</div>
 
@@ -39,10 +47,11 @@
 		</select>
 	</div>
 	-->
-	<!-- marcador de favoritos -->
+	<!-- marcador de favoritos
 	<a href="{% url 'favoritos' %}" class="favoritosBoton">
 		<i class="far fa-heart"></i>
 	</a>
+	-->
 	<!--- navegador ordenador -->
 	<div class="pt-3 pb-2 r-2 text-center border-bottom navegadorOrdenadorDiv" style="background: #fff;" id="nav">
 		<div class="busqueda">
@@ -54,6 +63,7 @@
 
 		<img src="{% static 'inicio/img/logo.png' %}" alt="lilus" class="logoPortada mb-3" id="menu" onclick="window.location ='{% url 'inicio'%}';">
 		<ul class=" navegadorOrdenador">
+			<li><a href="{% url 'inicio' %}">INICIO</a></li>
 	    <li><a>VESTIDOS DE COMUNIÓN</a>
 				<ul>
 					<div class="lineaSeparadoraMenu">
@@ -76,7 +86,7 @@
 							{% endif %}
 						{% endfor %}
 						<!-- foto del menu -->
-						<div class="imagenMenu" style="background: url({% static 'inicio/img/verano2018/2.jpg'%}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
+						<div class="imagenMenu" style="background: url({% static 'inicio/img/veranoPortada.jpg'%}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
 					</div>
 				</ul>
 			</li>
@@ -89,12 +99,11 @@
 							{% endif %}
 						{% endfor %}
 						<!-- foto del menu -->
-						<div class="imagenMenu" style="background: url({% static 'inicio/img/verano2018/3.jpg'%}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
+						<div class="imagenMenu" style="background: url({% static 'inicio/img/bautizoPortada.jpg'%}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
 					</div>
 				</ul>
 			</li>
 			<li><a href="{% url 'evento' %}">EVENTOS</a></li>
-			<li><a href="{% url 'puntosDeVenta' %}">PUNTOS DE VENTA</a></li>
 			<li><a href="{% url 'contacto'%}" class="color: #000">CONTACTO</a></li>
 		</ul>
 	</div>
@@ -236,9 +245,9 @@
       <div class="col-md-3 mt-md-0 mt-3">
         <h5 class="text-uppercase text-light" style="font-size: 15px;">INFORMACIÓN</h5>
         <p class="text-light" style="font-size: 12px;">
-					Aviso legal<br>
-			    Politica de cookies<br>
-			    Contacto<br>
+					<a href="{% url 'avisoLegal' %}"style="color:#fff;">Aviso legal</a><br>
+			    <a href="{% url 'cookies' %}"style="color:#fff;">Politica de cookies</a><br>
+			    <a href="{% url 'contacto' %}"style="color:#fff;">Contacto</a><br>
         </p>
       </div>
 			<div class="col-md-3 mt-md-0 mt-3">

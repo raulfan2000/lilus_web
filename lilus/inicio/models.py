@@ -50,3 +50,23 @@ class Foto(models.Model):
             img1.save(self.imagen.path)
     def __str__ (self):
         return f'{str(self.coleccion)} {str(self.id)}'
+
+# contacto
+class Contacto(models.Model):
+    class Meta:
+        verbose_name = "Formulario de contacto"
+        verbose_name_plural = "Formularios de contacto"
+    # campos
+    id = models.UUIDField(_("ID"), primary_key=True, default=uuid.uuid4, editable=False)
+    creacion = models.DateTimeField(auto_now_add=True, blank=True)
+    nombre = models.CharField(max_length=32, default='')
+    apellidos = models.CharField(max_length=120, default='')
+    correo = models.CharField(max_length=120, default='')
+    pais = models.CharField(max_length=120, default='')
+    prefijo = models.CharField(max_length=120, default='')
+    telefono = models.IntegerField(default=000000000)
+    idioma = models.CharField(max_length=120, default='')
+    mensaje = models.CharField(max_length=5000, default='')
+    # nombre en bbdd
+    def __str__ (self):
+        return f'{str(self.nombre)}'

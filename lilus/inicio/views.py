@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from .models import Coleccion, Foto
 from unidecode import unidecode
+from .forms import formularioContacto
+from .mail import contactoMail
 
 ###### información ######
 def inicio(request):
@@ -20,6 +22,38 @@ def contacto(request):
     }
     return render(request, 'inicio/contacto.html', context)
 
+def envioMail(request):
+    if request.method == 'POST':
+        formulario = formularioContacto(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            nombre = formulario.cleaned_data['nombre']
+            apellidos = formulario.cleaned_data['apellidos']
+            correo = formulario.cleaned_data['correo']
+            pais = formulario.cleaned_data['pais']
+            prefijo = formulario.cleaned_data['prefijo']
+            telefono = formulario.cleaned_data['telefono']
+            idioma = formulario.cleaned_data['idioma']
+            mensaje = formulario.cleaned_data['mensaje']
+            contactoMail({
+                'nombre': nombre,
+                'apellidos': apellidos,
+                'correo': correo,
+                'pais': pais,
+                'prefijo': prefijo,
+                'telefono': telefono,
+                'idioma' : idioma,
+                'mensaje': mensaje,
+                'to': correo,
+            }).send()
+            messages.success(request, f'Formulario recibido correctamente.')
+            return redirect('contacto')
+        else:
+            messages.error(request, f'Formulario no válido, intentalo de nuevo.')
+            return redirect(request.META.get('HTTP_REFERER'))
+    else:
+        messages.error(request, f'Formulario no válido, intentalo de nuevo.')
+        return redirect(request.META.get('HTTP_REFERER'))
 
 
 
@@ -60,6 +94,24 @@ def evento(request):
         'coleccion' : Coleccion.objects.filter(activa = True),
     }
     return render(request, 'inicio/evento.html', context)
+
+
+
+def cookies(request):
+    context = {
+        'coleccion' : Coleccion.objects.filter(activa = True),
+    }
+    return render(request, 'inicio/cookies.html', context)
+
+
+
+def avisoLegal(request):
+    context = {
+        'coleccion' : Coleccion.objects.filter(activa = True),
+    }
+    return render(request, 'inicio/privacidad.html', context)
+
+
 
 
 def puntosDeVenta(request):
