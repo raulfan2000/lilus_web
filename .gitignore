@@ -2,3 +2,4 @@
 lilus/lilus/settings.py
 lilus/__pycache__/
 lilus/migrations/
+lilus/media/
