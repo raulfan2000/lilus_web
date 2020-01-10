@@ -266,6 +266,7 @@ color: #747474;
 .navegadorOrdenadorDiv{
 	height: 125px;
 	display: block;
+	position: relative;
 }
 .navegadorDivScroll{
 	height: 64px!important;
@@ -275,13 +276,31 @@ color: #747474;
 	margin-top: 125px!important;
 }
 .navegadorOrdenador{
-	width: 800px;
+	width: 820px;
 	margin:0 auto;
 	list-style:none;
 	overflow:hidden;
 	border-radius: 0!important;
 	padding: 0;
 }
+
+
+#m1{
+	width: 85px;
+}
+#m2{
+	width: 185px;
+}
+#m3, #m4{
+	width: 167px;
+}
+#m5{
+	width: 99px;
+}
+#m6{
+	width: 109px;
+}
+
 .busqueda{
 	width: 120px!important;
 	height: 30px !important;
@@ -325,8 +344,7 @@ color: #747474;
 	width:auto;
 	float:left;
 	text-align:center;
-	padding:5px 22px 5px 22px;
-	margin: .2%;
+	padding:5px 0 5px 0;
 	border-radius: 0!important;
 }
 
@@ -348,7 +366,7 @@ color: #747474;
 
 .lineaSeparadoraMenu{
 	width: 385px;
-  height: calc(100% - 16px);
+  height: calc(100% - 18px);
   border: 1px solid #dee2e6;
   position: absolute;
   bottom: 0;
@@ -356,6 +374,7 @@ color: #747474;
   z-index: 999;
   background-color: #fff;
   padding: 5px 10px;
+	box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
 }
 
 .navegadorOrdenador li ul{
