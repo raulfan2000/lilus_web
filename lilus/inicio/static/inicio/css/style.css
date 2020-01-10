@@ -1051,7 +1051,25 @@ color: #747474;
 	}
 }
 
-
+.tituloPregunta{
+	font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+	font-size: 20px !important;
+	font-weight: 600 !important;
+	line-height: 1.1578947368421053em !important;
+	color: #484848 !important;
+	padding-top: 0px !important;
+	padding-bottom: 8px !important;
+	text-align: left;
+}
+.respuestaPregunta{
+	font-size: 15px !important;
+	font-weight: 400 !important;
+	line-height: 1.1578947368421053em !important;
+	color: #747474 !important;
+	text-align: left;
+	padding-right: 50px;
+	margin-bottom: 25px;
+}
 
 
 #map{
