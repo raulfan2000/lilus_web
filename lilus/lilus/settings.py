@@ -80,7 +80,7 @@ DATABASES = {
         "NAME": "lilus",
         "USER": "super",
         "PASSWORD": "pop123123",
-        "HOST": "localhost",
+        "HOST": "lilus-1445.postgres.pythonanywhere-services.com",
         "PORT": "11445",
     }
 }
