@@ -2,9 +2,21 @@
 body * {
 	font-family: 'lato', sans-serif;
 	color: #424242;
-
 }
-input:focus, button:focus{
+
+
+form,
+input,
+textarea,
+select {
+  -webkit-appearance: none!important;
+  -moz-appearance: none!important;
+  appearance:!important;
+}
+
+
+input:focus, button:focus,textarea:focus,
+select:focus{
 	outline: 0!important;
 	box-shadow: 0 0 0 0 !important;
 }
@@ -12,10 +24,154 @@ ul, ol{
 	list-style: none;
 }
 
+#fondo{
+	min-height: calc(100vh - 125px - 170px);
+}
+
+
+.idiomaDiv{
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	height: 30px;
+	width: 100px;
+}
+
+.idiomaDiv i{
+		color: #747474;
+}
+
+.idiomaDiv i.fa-globe-europe{
+	display: none;
+}
+.idiomaSelect{
+	height: 30px;
+	width: 81px;
+	background-color: #fff;
+	border:1px solid #fff;
+	color: #747474;
+}
+
+
+.favoritosBoton{
+	width: 60px;
+	height: 60px;
+	background-color: #fff;
+	cursor: pointer;
+	position: fixed;
+	z-index: 999;
+	bottom: 20px;
+	right: 20px;
+	border-radius: 50%;
+	text-align: center;
+	font-size: 25px;
+	padding: 12px;
+	box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+}
+
+.favoritosBoton:hover{
+	box-shadow: 0 .2rem .6rem rgba(0,0,0,.2)!important;
+}
+
+
+.favoritosBotonAnadir{
+	width: 50px;
+	height: 50px;
+	background-color: #fff;
+	cursor: pointer;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	border-radius: 0;
+	text-align: center;
+	font-size: 22px;
+	padding: 10px;
+	opacity: .9;
+	transition: .8s;
+}
+.favoritosBotonAnadir:hover{
+	opacity: 1;
+		transition: .8s;
+	border-radius: 50%;
+	bottom: 2px;
+	right: 2px;
+	-ms-transform: rotate(360deg); /* IE 9 */
+ -webkit-transform: rotate(360deg); /* Chrome, Safari, Opera */
+ transform: rotate(360deg);
+}
+.favoritosBotonAnadir > i{
+	color: #747474;
+	transition: .8s;
+}
+.favoritosBotonAnadir:hover > i{
+	color: #424242;
+		transition: .8s;
+}
+
+
 @media (max-width: 900px) {
 	#fondo{
 		margin-top: 50px;
+		min-height: calc(100vh - 50px - 286px);
 	}
+
+
+	.idiomaDiv{
+		position: fixed;
+		z-index: 1031;
+		top: 0px;
+		right: 135px;
+		left: auto;
+		height: 50px;
+		width: 40px;
+	}
+
+	.idiomaDiv i.fa-caret-down{
+		display: none;
+	}
+
+	.idiomaDiv i.fa-globe-europe{
+		display: block;
+    position: absolute;
+    height: 50px;
+    width: 40px;
+    padding: 18px 12px;
+    font-size: 18px;
+	}
+
+	.idiomaSelect{
+		height: 50px;
+		width: 40px;
+		background-color: #fff;
+		border:1px solid #fff;
+		color: #747474;
+		opacity: 0;
+		z-index: 999;
+	}
+
+	.favoritosBoton {
+		width: 40px;
+    height: 50px;
+    background-color: #fff;
+    cursor: pointer;
+    position: fixed;
+    z-index: 1031;
+    top: 0px;
+    right: 95px;
+    border-radius: 0;
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 14px 12px;
+    box-shadow: 0 .2rem .6rem rgba(0,0,0,0)!important;
+	}
+
+	.favoritosBoton i{
+		color: #747474;
+	}
+	.favoritosBoton:hover{
+		box-shadow: 0 .2rem .6rem rgba(0,0,0,0)!important;
+	}
+
 }
 
 .page-footer{
@@ -88,7 +244,7 @@ color: #747474;
 	margin-top: 125px!important;
 }
 .navegadorOrdenador{
-	width:900px;
+	width: 863px;
 	margin:0 auto;
 	list-style:none;
 	overflow:hidden;
@@ -118,16 +274,7 @@ color: #747474;
 	z-index: 997;
 	background-color: #fff;
 }
-.busqueda input:focus{
-	border-bottom: 1px solid #000;
-	transition: .5s;
-	padding:5px 1px;
-	background-color: #fff;
-	z-index: 999;
-	left: -30px;
-	height: 100%;
-	width: calc(100%);
-}
+
 .busquedaLupa{
 	position: absolute;
 	left: 0px;
@@ -141,53 +288,43 @@ color: #747474;
 .busquedaLupa i{
 	color: #8c8c8c;
 }
-.buscarBoton{
-	position: absolute;
-	right: 0px;
-	bottom: 0px;
-	font-size: 10px;
-	z-index: 996!important;
-	width: 25px;
-	height: 25px;
-	border-radius: 0px;
-	background: #424242;
-	padding-left: 6px;
-	border: 0;
-}
-.buscarBoton i{
-	color: #fff !important;
-}
 
 
 .navegadorOrdenador > li{
-	width:19.6%;
+	width:auto;
 	float:left;
 	text-align:center;
-	padding:5px 0 5px 0;
+	padding:5px 22px 5px 22px;
 	margin: .2%;
 	border-radius: 0!important;
 }
 
 
 .navegadorOrdenador li a{
-	color: #424242;
+	color: #000;
 	text-decoration: none;
 	font-size: 11px;
 	border-radius: 0!important;
+	padding-bottom: 5px;
+	font-weight: 900;
 }
 
 .navegadorOrdenador a:hover{
-	color: #000;
+	color: #424242;
 	font-weight: 900;
+	cursor: pointer;
 }
 
 .lineaSeparadoraMenu{
 	width: 385px;
-	height: 1px;
-	background: #dee2e6;
-	position: absolute;
-	top: 16px;
-	left: 0;
+  height: calc(100% - 16px);
+  border: 1px solid #dee2e6;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  background-color: #fff;
+  padding: 5px 10px;
 }
 
 .navegadorOrdenador li ul{
@@ -195,16 +332,13 @@ color: #747474;
 	position: absolute;
 	width: calc(185px + 200px);
 	min-height: 220px;
-	background: #fff;
+	background: transparent;
 	text-align: left;
 	list-style: none;
 	border-radius: 0!important;
 	z-index: 9999;
 	padding: 20px 200px 10px 10px;
 	transition: 1s;
-	-webkit-box-shadow: 0px 4px 5px -5px rgba(116,116,116,1);
-	-moz-box-shadow: 0px 4px 5px -5px rgba(116,116,116,1);
-	box-shadow: 0px 4px 5px -5px rgba(116,116,116,1);
 }
 
 .imagenMenu{
@@ -213,7 +347,7 @@ color: #747474;
 	width: 220px;
 	background: #000;
 	right: 10px;
-	top: 30px;
+	top: 14px;
 }
 .navegadorOrdenador li ul li{
 	padding: 5px;
@@ -254,12 +388,13 @@ color: #747474;
 	}
 
 	.busqueda2 {
-		width: 20px!important;
-		height: 20px !important;
+		width: 40px!important;
+		height: 50px !important;
 		text-align: center;
 		position: relative;
-		top: 15px;
+		top: 0;
 		right: 0px;
+		padding: 14px 12px;
 		float: right;
 		border: 0px!important;
 	}
@@ -278,12 +413,12 @@ color: #747474;
 	float: left;
 }
 .menuPalos{
-	width: 32px;
-	height: 50px;
-	padding: 15px 8px;
-	float: right;
-	cursor: pointer;
-	margin: 0 15px;
+	width: 40px;
+  height: 50px;
+  padding: 15px 12px;
+  float: right;
+  cursor: pointer;
+  margin: 0 15px 0 0;
 }
 .menuPalo1{
 	width: 16px;
@@ -364,6 +499,7 @@ color: #747474;
 	color: #171d23;
 	text-decoration: none;
 	font-family: 'Karla', sans-serif;
+	text-transform: uppercase;
 }
 
 .menuMovil a:hover{
@@ -373,13 +509,26 @@ color: #747474;
 }
 
 .menuMovil > li{
-	padding: 15px 0 5px 0;
+	padding: 10px 0 5px 0;
 	color: #171d23;
 	font-weight: bold;
 	font-size: 20px;
 	text-transform: uppercase;
 	font-weight: 600;
 }
+
+
+.menuMovil > li ul{
+	height: 0px;
+	overflow: hidden;
+	transition: .5s;
+}
+
+.menuMovil li:hover > ul{
+	height: auto;
+	transition: .5s
+}
+
 
 .menuMovil > li ul li{
 	padding: 5px 0;
@@ -398,12 +547,12 @@ color: #747474;
 	background: url(/static/inicio/lilusWeb.mov) no-repeat;
 	background-size: cover;
 	background-position: center;
-	height: calc(100vh - 125px);
+	height: calc(500px);
 }
 
 
 .videoPortada{
-	height: calc(100vh - 125px);
+	height: calc(500px);
 	width: 100vw;
 	overflow: hidden;
 	z-index: 997;
@@ -416,14 +565,14 @@ color: #747474;
 
 .videoContainer{
 	width: 100%;
-  height: calc(100vh - 125px);
+  height: calc(500px);
 	background: url(/static/inicio/lilusWeb.png) no-repeat;
 	background-size: cover;
 	background-position:center !important;
 }
 
 .fondoNegro{
-	height: calc(100vh - 125px);
+	height: calc(500px);
 	width: 100vw;
 	z-index: 998;
 	background-color: rgba(0, 0, 0, 0.1);
@@ -551,7 +700,6 @@ color: #747474;
 }
 
 .fotoAlbum:hover{
-	opacity: .7;
 	cursor:pointer;
 }
 
@@ -728,6 +876,12 @@ color: #747474;
 	height: 56px!important;
 }
 
+.busquedaMotorCampo2{
+	width: calc(100% - 48px - 7px);
+	margin-right: 7px;
+	height: 40px!important;
+}
+
 @media (max-width: 767px) {
 	.busquedaMotorCampo{
 		width: calc(100% - 48px - 5px);
@@ -736,6 +890,22 @@ color: #747474;
 	}
 }
 
+
+.overlay {
+    display: none;
+    position: fixed;
+    width: 100vw;
+		height: calc(100vh);
+		top: 0px;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1033;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+.overlay.active {
+    display: block;
+    opacity: 1;
+}
 
 
 
@@ -747,12 +917,12 @@ color: #747474;
 	top: 10px;
 	right: -100vw;
 	z-index: 9999999;
-	transition: all 1s;
+	transition: .8s;
 }
 
 .buscadormovil.active{
 	right: 10px;
-	transition: all 1s;
+	transition: all .4s;
 }
 
 
@@ -771,21 +941,37 @@ color: #747474;
 	font-size: 12px;
 	margin-right: 7px;
 	margin-bottom: 7px;
+	background-color: #fff!important;
 }
 
 .busquedaPredeterminada.active{
-	background-color: #424242;
-	color: #fff;
+	background-color: #424242!important;
+	border: 1px solid #424242;
+	color: #fff!important;
+}
+
+.busquedaPredeterminada.active:hover{
+	border: 1px solid #000;
+	background-color: #000;
+	cursor: pointer;
+}
+
+.busquedaPredeterminada:hover{
+	border: 1px solid #000;
+	color: #000;
+	cursor: pointer;
 }
 
 .cerrarBuscadorMovil{
-	width: auto;
-	height: auto;
+	width: 20px;
+	height: 20px;
 	top: 1.5rem;
-	right: 1rem!important;
+	right: 0!important;
 	position: absolute;
 	font-size: 18px;
 	margin: 0 1.5rem;
+	cursor: pointer;
+	display: none;
 }
 
 
@@ -815,7 +1001,6 @@ color: #747474;
 
 
 @media (max-width: 767px) {
-
 	.buscadormovil{
 		height: 100vh;
 		width: 100vw;
@@ -824,11 +1009,28 @@ color: #747474;
 		top: 0;
 		right: -100vw;
 		z-index: 9999999;
-		transition: all 1s;
+		transition: .4s;
 	}
-
+	.cerrarBuscadorMovil{
+		display: block;
+	}
 	.buscadormovil.active{
-		left: 0;
-		transition: all 1s;
+		right: 0;
+		transition: .4s;
+	}
+}
+
+
+
+
+#map{
+	height: calc(100vh - 125px - 85px);
+	width: 100%;
+}
+
+@media (max-width: 767px) {
+	#map{
+		height: calc(100vh - 180px);
+		width: 100%;
 	}
 }

@@ -1,0 +1,32 @@
+{% extends "inicio/base.html" %}
+{% load static %}
+{% block content %}
+
+
+<div class="col-12 nombreColeccion mt-3 mb-3 pt-2">
+	<p class="m-0" style="text-transform:uppercase">COLECCIÓN {{coleccion_unica.nombre}}</p>
+</div>
+
+<div class="col-12 pl-md-5 pr-md-5 pl-2 pr-2">
+	<div class="tz-gallery">
+			<div class="row m-0">
+				{% for imagen in imagen %}
+					<div class="col-md-4 col-lg-3 col-6  p-1 p-lg-2">
+							<div class="card border-0" style=" position:relative">
+									<a class="lightbox" href="{{ imagen.imagen.url }}">
+									<div class="fotoAlbum"style="background: url({{ imagen.imagen.url }}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
+									</a>
+
+									<a href="" class="favoritosBotonAnadir shadow-sm">
+										<i class="far fa-heart"></i>
+									</a>
+
+							</div>
+					</div>
+				{% endfor %}
+			</div>
+	</div>
+</div>
+
+
+{% endblock %}

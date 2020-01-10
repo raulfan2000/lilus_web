@@ -7,7 +7,7 @@
 		<div class="row p-3 p-md-0">
 			<div class="col-12 mt-2 mb-2 p-1 p-lg-2">
 				<form action="{% url 'buscador' %}">
-					<input type="text" class="formularioContacto busquedaMotorCampo" placeholder="Buscar...">
+					<input type="text" name='busqueda' class="formularioContacto busquedaMotorCampo" placeholder="Buscar...">
 					<button class="btn-dark btn border-0 rounded-0 float-right px-md-5 py-md-3 px-3 py-2" type="submit"><i class="fas fa-search text-white"></i></button>
 				</form>
 			</div>
@@ -19,47 +19,59 @@
 <div class="container">
 	<div class="row p-3 p-md-0">
 		<div class="col-12 mt-md-3 p-1 p-lg-2">
-			<h5>Resultado - Terminos de busqueda</h5>
+			<h5>Resultados de {{busqueda}}</h5>
 		</div>
 
-		<div class="col-12 p-0">
-			<div class="tz-gallery">
-					<div class="row m-0">
+		<div class="col-12 p-0" style="min-height: calc(100vh - 150px - 88px - 170px - 48px);">
 
-							<div class="col-md-4 col-lg-3 col-6  p-1 p-lg-2">
-									<div class="card border-0">
-											<a class="lightbox" href="{% static 'inicio/img/verano2018/1.jpg'%}">
-											<div class="fotoAlbum"style="background: url({% static 'inicio/img/verano2018/1.jpg'%}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
-											</a>
-									</div>
-							</div>
-
-							<div class="col-md-4 col-lg-3 col-6  p-1 p-lg-2">
-									<div class="card border-0">
-											<a class="lightbox" href="{% static 'inicio/img/verano2018/2.jpg'%}">
-												<div class="fotoAlbum"style="background: url({% static 'inicio/img/verano2018/2.jpg'%}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
-											</a>
-									</div>
-							</div>
-
-							<div class="col-md-4 col-lg-3 col-6  p-1 p-lg-2">
-									<div class="card border-0">
-											<a class="lightbox" href="{% static 'inicio/img/verano2018/3.jpg'%}">
-											<div class="fotoAlbum"style="background: url({% static 'inicio/img/verano2018/3.jpg'%}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
-											</a>
-									</div>
-							</div>
-
-							<div class="col-md-4 col-lg-3 col-6  p-1 p-lg-2">
-									<div class="card border-0">
-											<a class="lightbox" href="{% static 'inicio/img/verano2018/1.jpg'%}">
-											<div class="fotoAlbum"style="background: url({% static 'inicio/img/verano2018/1.jpg'%}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
-											</a>
-									</div>
-							</div>
-
+			{% if imagenes %}
+				<div class="tz-gallery">
+						<div class="row m-0">
+							{% for imagenes in imagenes %}
+								<div class="col-md-4 col-lg-3 col-6  p-1 p-lg-2">
+										<div class="card border-0">
+												<a class="lightbox" href="{% static '{{imagenes.imagen.url}}'%}">
+												<div class="fotoAlbum"style="background: url({{imagenes.imagen.url}}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
+												</a>
+												<a href="" class="favoritosBotonAnadir shadow-sm">
+													<i class="far fa-heart"></i>
+												</a>
+										</div>
+								</div>
+							{% endfor %}
+						</div>
+				</div>
+			{% else %}
+				<div class="noHayCoincidencias px-1 px-lg-2">
+					<p class="m-0 border-bottom pb-4">Lo sentimos, no se han encontrado coincidencias.</p>
+					<!-- opciones -->
+					<p class="textoFormulario mb-2 mt-4">Prueba con:</p>
+					<div class="divBusquedaPredeterminada row m-0">
+						<form action="{% url 'buscador' %}">
+						    <input type="text" name="busqueda" style="display:none" value=""/>
+						    <input type="submit"class="busquedaPredeterminada active" value="Todos"/>
+						</form>
+						<form action="{% url 'buscador' %}">
+						    <input type="submit" name="busqueda" class="busquedaPredeterminada" value="Comunión"/>
+						</form>
+						<form action="{% url 'buscador' %}">
+								<input type="submit" name="busqueda" class="busquedaPredeterminada" value="2020"/>
+						</form>
+						<form action="{% url 'buscador' %}">
+								<input type="submit" name="busqueda" class="busquedaPredeterminada" value="2019"/>
+						</form>
+						<form action="{% url 'buscador' %}">
+								<input type="submit" name="busqueda" class="busquedaPredeterminada" value="Comunión 2020"/>
+						</form>
+						<form action="{% url 'buscador' %}">
+								<input type="submit" name="busqueda" class="busquedaPredeterminada" value="Verano"/>
+						</form>
+						<form action="{% url 'buscador' %}">
+								<input type="submit" name="busqueda" class="busquedaPredeterminada" value="Verano 2020"/>
+						</form>
 					</div>
-			</div>
+				</div>
+			{% endif %}
 		</div>
 
 

@@ -11,14 +11,12 @@
   <link rel="icon" href="{% static 'inicio/img/favicon.png'%}" type="image/png">
 	<meta name="theme-color" content="#000"/>
 	<title>lilus | Vestidos de niña </title>
-
 	<!-- css propio -->
 	<link rel="stylesheet" href="{% static 'inicio/css/style.css' %}" type="text/css"/>
 	<!-- css bootstrap -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<!-- css otras fuentes -->
 	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|EB+Garamond|Karla|Lato&display=swap" rel="stylesheet">
-
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css" type="text/css"/>
 	<script src="https://kit.fontawesome.com/ebc0e8d4d6.js"></script>
 
@@ -30,42 +28,74 @@
 	  <div onclick="controlcookies()" class="botonCookie"><i class="fas fa-times"></i></div>
 	</div>
 
-
+	<!-- marcador de idioma
+	<div class="idiomaDiv">
+		<i class="fas fa-caret-down"></i>
+		<i class="fas fa-globe-europe"></i>
+		<select class="idiomaSelect">
+			<option value="España" selected>Español</option>
+			<option value="Italia">English</option>
+			<option value="Italia">Français</option>
+		</select>
+	</div>
+	-->
+	<!-- marcador de favoritos -->
+	<a href="{% url 'favoritos' %}" class="favoritosBoton">
+		<i class="far fa-heart"></i>
+	</a>
 	<!--- navegador ordenador -->
 	<div class="pt-3 pb-2 r-2 text-center border-bottom navegadorOrdenadorDiv" style="background: #fff;" id="nav">
-
 		<div class="busqueda">
 			<form action="{% url 'buscador' %}">
 				<div class="busquedaLupa"><i class="fas fa-search"></i></div>
-				<input type="text" placeholder="Buscar...">
-				<button type="submit" class="buscarBoton"><i class="fas fa-search"></i></button>
+				<input type="text" id="activarBuscador"placeholder="Buscar...">
 			</form>
 		</div>
 
 		<img src="{% static 'inicio/img/logo.png' %}" alt="lilus" class="logoPortada mb-3" id="menu" onclick="window.location ='{% url 'inicio'%}';">
 		<ul class=" navegadorOrdenador">
-	    <li><a href="">VESTIDOS DE COMUNIÓN</a>
+	    <li><a>VESTIDOS DE COMUNIÓN</a>
 				<ul>
-					<div class="lineaSeparadoraMenu"></div>
-					<li><a  href="{% url 'comunion2020'%}">COMUNIÓN 2020</a></li>
-					<li><a  href="{% url 'comunion2019'%}">COMUNIÓN 2019</a></li>
-					<li><a href="{% url 'comunion2018'%}">COMUNIÓN 2018</a></li>
-					<!-- foto del menu -->
-					<div class="imagenMenu" style="background: url({% static 'inicio/img/verano2018/1.jpg'%}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
+					<div class="lineaSeparadoraMenu">
+						{% for coleccion in coleccion %}
+							{% if coleccion.tipo == 'Comunion' %}
+								<li><a  href="{% url 'coleccion' coleccion.id %}">{{coleccion.nombre}}</a></li>
+							{% endif %}
+						{% endfor %}
+						<!-- foto del menu -->
+						<div class="imagenMenu" style="background: url({% static 'inicio/img/verano2018/1.jpg'%}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
+					</div>
 				</ul>
 			</li>
-	    <li><a href="">VESTIDOS DE VERANO</a>
+	    <li><a>VESTIDOS DE VERANO</a>
 				<ul>
-					<div class="lineaSeparadoraMenu"></div>
-					<li><a href="{% url 'verano2019'%}">VERANO 2019</a></li>
-					<li><a href="{% url 'verano2018'%}">VERANO 2018</a></li>
-					<!-- foto del menu -->
-					<div class="imagenMenu" style="background: url({% static 'inicio/img/verano2018/2.jpg'%}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
+					<div class="lineaSeparadoraMenu">
+						{% for coleccion in coleccion %}
+							{% if coleccion.tipo == 'Verano' %}
+								<li><a  href="{% url 'coleccion' coleccion.id%}">{{coleccion.nombre}}</a></li>
+							{% endif %}
+						{% endfor %}
+						<!-- foto del menu -->
+						<div class="imagenMenu" style="background: url({% static 'inicio/img/verano2018/2.jpg'%}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
+					</div>
 				</ul>
 			</li>
-	    <li><a href="{% url 'bautizo'%}">VESTIDOS DE BAUTIZO</a></li>
-			<li><a href="">EVENTOS</a></li>
-			<li style="border: 1px solid #000 "><a href="{% url 'contacto'%}" class="color: #000">CONTACTO</a></li>
+	    <li><a>VESTIDOS DE BAUTIZO</a>
+				<ul>
+					<div class="lineaSeparadoraMenu shadow-sm">
+						{% for coleccion in coleccion %}
+							{% if coleccion.tipo == 'Bautizo' %}
+								<li><a  href="{% url 'coleccion' coleccion.id%}">{{coleccion.nombre}}</a></li>
+							{% endif %}
+						{% endfor %}
+						<!-- foto del menu -->
+						<div class="imagenMenu" style="background: url({% static 'inicio/img/verano2018/3.jpg'%}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
+					</div>
+				</ul>
+			</li>
+			<li><a href="{% url 'evento' %}">EVENTOS</a></li>
+			<li><a href="{% url 'puntosDeVenta' %}">PUNTOS DE VENTA</a></li>
+			<li><a href="{% url 'contacto'%}" class="color: #000">CONTACTO</a></li>
 		</ul>
 	</div>
 	<!--- navegador movil -->
@@ -83,68 +113,93 @@
 
 	<nav id="sidebar">
 		<ul class="menuMovil">
-			<li><a href="{% url 'inicio'%}">· INICIO</a></li>
+			<li><a href="{% url 'inicio'%}">INICIO</a></li>
 			<li><a class="text-danger">VESTIDOS DE COMUNIÓN</a>
 				<ul>
-					<li><a href="{% url 'comunion2019'%}">· COMUNIÓN 2020</a></li>
-					<li><a href="{% url 'comunion2019'%}">· COMUNIÓN 2019</a></li>
-					<li><a href="{% url 'comunion2018'%}">· COMUNIÓN 2018</a></li>
+					{% for coleccion in coleccion %}
+						{% if coleccion.tipo == 'Comunion' %}
+							<li><a href="{% url 'coleccion' coleccion.id%}">· {{coleccion.nombre}}</a></li>
+						{% endif %}
+					{% endfor %}
 				</ul>
 			</li>
 
 			<li><a>VESTIDOS DE VERANO</a>
 				<ul>
-					<li><a href="{% url 'verano2019'%}">· VERANO 2019</a></li>
-					<li><a href="{% url 'verano2018'%}">· VERANO 2018</a></li>
+					{% for coleccion in coleccion %}
+						{% if coleccion.tipo == 'Verano' %}
+							<li><a href="{% url 'coleccion' coleccion.id%}">· {{coleccion.nombre}}</a></li>
+						{% endif %}
+					{% endfor %}
 				</ul>
 			</li>
+			<li><a>VESTIDOS DE BAUTIZO</a>
+				<ul>
+					{% for coleccion in coleccion %}
+						{% if coleccion.tipo == 'Bautizo' %}
+							<li><a href="{% url 'coleccion' coleccion.id%}">· {{coleccion.nombre}}</a></li>
+						{% endif %}
+					{% endfor %}
+				</ul>
+			</li>
+			<li><a  href="{% url 'evento' %}">EVENTOS</a></li>
+			<li><a  href="{% url 'puntosDeVenta' %}">PUNTOS DE VENTA</a></li>
 
-			<li><a href="{% url 'bautizo'%}">· VESTIDOS DE BAUTIZO</a></li>
-
-			<li><a href="{% url 'eventoValencia2019' %}">· EVENTOS</a></li>
-
-			<li><a href="{% url 'contacto'%}">· CONTACTO</a></li>
-
+			<li><a href="{% url 'contacto'%}">CONTACTO</a></li>
 		</ul>
+
+		<div class="row m-0 px-4">
+			<div class="col-12 border-top p-0 border-bottom">
+					<p class="textoFormulario mb-0 mt-3">Aviso legal</p>
+					<p class="textoFormulario mb-0">Politica de cookies</p>
+					<p class="mt-2" style="font-size: 12px;color:#747474">
+						E-mail: <a href="mailto:lilus@lilus.es" style="color:#747474; font-size: 12px">lilus@lilus.es</a> <br>
+						Teléfono: <a href="tel:+34965487509" style="color:#747474;font-size: 12px">965 48 75 09</a> <br>
+	        </p>
+			</div>
+			<div class="footer-copyright text-left py-3 text-dark" style="font-size: 12px">© 2020 - Lilus S.A.</div>
+		</div>
+
 	</nav>
 
+	<!-- overlay -->
+	<div class="overlay"></div>
 	<!-- buscador para movil -->
-
-	<div class="buscadormovil" id="buscadorMovil">
+	<div class="buscadormovil shadow" id="buscadorMovil">
 		<div class="cerrarBuscadorMovil" id="cerrarBuscadorMovil">
 			<div class="palo1 active"></div>
 			<div class="palo2 active"></div>
 		</div>
-
-		<div class="col-12 p-4 mt-5">
+		<div class="col-12 p-4 mt-md-0 mt-5">
 			<form action="{% url 'buscador' %}">
-				<input type="text" class="formularioContacto busquedaMotorCampo" placeholder="Buscar...">
-				<button class="btn-dark btn border-0 rounded-0 float-right px-md-5 py-md-3 px-3 py-2" type="submit"><i class="fas fa-search text-white"></i></button>
+				<input type="text" name="busqueda" class="formularioContacto busquedaMotorCampo2" placeholder="Buscar...">
+				<button class="btn-dark btn border-0 rounded-0 float-right  px-3 py-2" type="submit"><i class="fas fa-search text-white"></i></button>
 			</form>
 			<!-- opciones -->
 			<p class="textoFormulario mb-2 mt-3">Prueba con:</p>
 			<div class="divBusquedaPredeterminada row m-0">
-				<div class="busquedaPredeterminada active">
-					Todos
-				</div>
-				<div class="busquedaPredeterminada">
-					Comunión
-				</div>
-				<div class="busquedaPredeterminada">
-					2020
-				</div>
-				<div class="busquedaPredeterminada">
-					2019
-				</div>
-				<div class="busquedaPredeterminada">
-					Comunión 2020
-				</div>
-				<div class="busquedaPredeterminada">
-					Verano
-				</div>
-				<div class="busquedaPredeterminada">
-					Verano 2020
-				</div>
+				<form action="{% url 'buscador' %}">
+						<input type="text" name="busqueda" style="display:none" value=""/>
+						<input type="submit"class="busquedaPredeterminada active" value="Todos"/>
+				</form>
+				<form action="{% url 'buscador' %}">
+						<input type="submit" name="busqueda" class="busquedaPredeterminada" value="Comunión"/>
+				</form>
+				<form action="{% url 'buscador' %}">
+						<input type="submit" name="busqueda" class="busquedaPredeterminada" value="2020"/>
+				</form>
+				<form action="{% url 'buscador' %}">
+						<input type="submit" name="busqueda" class="busquedaPredeterminada" value="2019"/>
+				</form>
+				<form action="{% url 'buscador' %}">
+						<input type="submit" name="busqueda" class="busquedaPredeterminada" value="Comunión 2020"/>
+				</form>
+				<form action="{% url 'buscador' %}">
+						<input type="submit" name="busqueda" class="busquedaPredeterminada" value="Verano"/>
+				</form>
+				<form action="{% url 'buscador' %}">
+						<input type="submit" name="busqueda" class="busquedaPredeterminada" value="Verano 2020"/>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -153,8 +208,7 @@
 		{% block content %}
 		{% endblock %}
 	</div>
-
-
+	<!-- java script -->
 	<script>
 		if (localStorage.controlcookie > 0){
 			document.getElementById('cookie1').style.display = 'none';
@@ -165,72 +219,13 @@
 			cookie1.style.display='none';
 		}
 	</script>
-
-
-
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
 	<script> baguetteBox.run('.tz-gallery'); </script>
-	<script type="text/javascript" src="jquery-1.7.2.min.js"></script><script type="text/javascript">
-		$(window).scroll(function(){
-		  if ($(this).scrollTop() > 60 && screen.width > 900){
-				$('#menu').addClass("menuVisible");
-				$('#nav').addClass("navegadorDivScroll");
-				$('#nav').addClass("fixed-top");
-				$('#fondo').addClass("marginScroll");
-			}
-		  else {
-				$('#menu').removeClass("menuVisible");
-				$('#nav').removeClass("navegadorDivScroll");
-				$('#nav').removeClass("fixed-top");
-				$('#fondo').removeClass("marginScroll");
-			}
-		});
-	</script>
-
-	<script>
-		$(document).click(function () {
-			if($('#sidebar').hasClass('active')){
-				$('#ponerMenu').on('click', function () {
-						$('#sidebar').removeClass('active');
-						$('.menuPalo1').removeClass('active');
-						$('.menuPalo2').removeClass('active');
-						$('.menuPalo3').removeClass('active');
-				});
-
-				$('#activarBuscadorMovil, .busqueda').on('click', function () {
-						$('#buscadorMovil').addClass('active');
-						$('html,body').css('overflow', 'hidden');
-				});
-
-				$('#cerrarBuscadorMovil').on('click', function () {
-						$('#buscadorMovil').removeClass('active');
-						$('html,body').css('overflow', 'scroll');
-				});
-			}
-			else{
-				$('#ponerMenu').on('click', function () {
-						$('#sidebar').addClass('active');
-						$('.menuPalo1').addClass('active');
-						$('.menuPalo2').addClass('active');
-						$('.menuPalo3').addClass('active');
-				});
-
-				$('#activarBuscadorMovil, .busqueda').on('click', function () {
-						$('#buscadorMovil').addClass('active');
-						$('html,body').css('overflow', 'hidden');
-				});
-
-				$('#cerrarBuscadorMovil').on('click', function () {
-						$('#buscadorMovil').removeClass('active');
-						$('html,body').css('overflow', 'scroll');
-				});
-
-			}
-		});
-	</script>
+	<script type="text/javascript" src="jquery-1.7.2.min.js"></script><script type="text/javascript"></script>
+	<script type="text/javascript" src="{% static 'inicio/main.js' %}"></script><script type="text/javascript"></script>
 </body>
 
 <!-- Footer -->
@@ -256,6 +251,6 @@
 
     </div>
   </div>
-  <div class="footer-copyright text-right p-3 text-light" style="font-size: 12px">© 2020 - Lilus S.A.</div>
+  <div class="footer-copyright text-center p-3 text-light" style="font-size: 12px">© 2020 - Lilus S.A.</div>
 </footer>
 </html>
