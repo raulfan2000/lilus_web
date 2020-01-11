@@ -39,6 +39,7 @@ $(document).ready(function () {
 			$('#buscadorMovil').addClass('active');
 			$('.overlay').addClass('active');
 			$('html,body').css('overflow', 'hidden');
+			$('#inputBuscador').focus();
 	});
 
 	$('#cerrarBuscadorMovil, .overlay').on('click', function () {
