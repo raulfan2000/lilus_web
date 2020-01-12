@@ -89,11 +89,11 @@ def coleccion(request, id_coleccion):
     return render(request, 'inicio/coleccion.html', context)
 
 
-def evento(request):
+def blog(request):
     context = {
         'coleccion' : Coleccion.objects.filter(activa = True),
     }
-    return render(request, 'inicio/evento.html', context)
+    return render(request, 'inicio/blog.html', context)
 
 
 

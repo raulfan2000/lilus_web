@@ -1,15 +1,17 @@
 $(window).scroll(function(){
-	if ($(this).scrollTop() > 60 && screen.width > 900){
+	if ($(this).scrollTop() > 69 && screen.width > 900){
 		$('#menu').addClass("menuVisible");
 		$('#nav').addClass("navegadorDivScroll");
 		$('#nav').addClass("fixed-top");
 		$('#fondo').addClass("marginScroll");
+		$('#activeBusquedaScroll').addClass("active");
 	}
 	else {
 		$('#menu').removeClass("menuVisible");
 		$('#nav').removeClass("navegadorDivScroll");
 		$('#nav').removeClass("fixed-top");
 		$('#fondo').removeClass("marginScroll");
+		$('#activeBusquedaScroll').removeClass("active");
 	}
 });
 

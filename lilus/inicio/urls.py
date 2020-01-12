@@ -12,7 +12,7 @@ urlpatterns = [
     path('favoritos/', views.favoritos, name='favoritos'),
     path('coleccion/<uuid:id_coleccion>/', views.coleccion, name='coleccion'),
     path('puntosDeVenta/', views.puntosDeVenta, name='puntosDeVenta'),
-    path('evento/', views.evento, name='evento'),
+    path('blog/', views.blog, name='blog'),
     path('cookies/', views.cookies, name='cookies'),
     path('avisolegal/', views.avisoLegal, name='avisoLegal'),
 
