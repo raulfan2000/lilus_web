@@ -634,9 +634,7 @@ color: #747474;
 .videoContainer{
 	width: 100%;
   height: calc(500px);
-	background: url(/static/inicio/lilusWeb.jpg) no-repeat;
-	background-size: cover;
-	background-position:center !important;
+	background: #fff;
 }
 
 .fondoNegro{
