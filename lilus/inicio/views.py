@@ -11,7 +11,7 @@ from .mail import contactoMail
 ###### información ######
 def inicio(request):
     context = {
-        'coleccion' : Coleccion.objects.filter(activa = True),
+        'coleccion' : Coleccion.objects.filter(activa = True).order_by('-nombre'),
     }
 
     return render(request, 'inicio/inicio.html', context)
@@ -65,7 +65,7 @@ def buscador(request):
 
     context = {
         'busqueda' : busqueda,
-        'coleccion' : Coleccion.objects.filter(activa = True),
+        'coleccion' : Coleccion.objects.filter(activa = True).order_by('-nombre'),
         'imagenes' : Foto.objects.filter(coleccion__nombre_real__icontains = unidecode(request.GET.get('busqueda'))),
     }
 
@@ -76,13 +76,13 @@ def buscador(request):
 
 def favoritos(request):
     context = {
-        'coleccion' : Coleccion.objects.filter(activa = True),
+        'coleccion' : Coleccion.objects.filter(activa = True).order_by('-nombre'),
     }
     return render(request, 'inicio/favoritos.html', context)
 
 def coleccion(request, id_coleccion):
     context = {
-        'coleccion' : Coleccion.objects.filter(activa = True),
+        'coleccion' : Coleccion.objects.filter(activa = True).order_by('-nombre'),
         'coleccion_unica' : Coleccion.objects.get(id = id_coleccion),
         'imagen' : Foto.objects.filter(coleccion = id_coleccion).order_by('-creacion'),
     }
@@ -91,7 +91,7 @@ def coleccion(request, id_coleccion):
 
 def blog(request):
     context = {
-        'coleccion' : Coleccion.objects.filter(activa = True),
+        'coleccion' : Coleccion.objects.filter(activa = True).order_by('-nombre'),
     }
     return render(request, 'inicio/blog.html', context)
 
@@ -99,7 +99,7 @@ def blog(request):
 
 def cookies(request):
     context = {
-        'coleccion' : Coleccion.objects.filter(activa = True),
+        'coleccion' : Coleccion.objects.filter(activa = True).order_by('-nombre'),
     }
     return render(request, 'inicio/cookies.html', context)
 
@@ -107,7 +107,7 @@ def cookies(request):
 
 def avisoLegal(request):
     context = {
-        'coleccion' : Coleccion.objects.filter(activa = True),
+        'coleccion' : Coleccion.objects.filter(activa = True).order_by('-nombre'),
     }
     return render(request, 'inicio/privacidad.html', context)
 
@@ -116,6 +116,6 @@ def avisoLegal(request):
 
 def puntosDeVenta(request):
     context = {
-        'coleccion' : Coleccion.objects.filter(activa = True),
+        'coleccion' : Coleccion.objects.filter(activa = True).order_by('-nombre'),
     }
     return render(request, 'inicio/puntosDeVenta.html', context)

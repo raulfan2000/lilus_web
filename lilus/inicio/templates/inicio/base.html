@@ -30,13 +30,15 @@
   </script>
 </head>
 <body>
-
+	 <!-- Load Facebook SDK for JavaScript -->
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v5.0"></script>
+	 <!-- boton de cookies -->
 	<div class="cookiesms shadow-lg " id="cookie1">
 	  Esta web utiliza cookies,
 	  Si continuas navegando estás aceptándolas. <a href="{% url 'cookies' %}">Leer más</a>
 	  <div onclick="controlcookies()" class="botonCookie"><i class="fas fa-times"></i></div>
 	</div>
-
 	<!-- marcador de idioma
 	<div class="idiomaDiv">
 		<i class="fas fa-caret-down"></i>
@@ -61,7 +63,6 @@
 				<input type="text" required id="activarBuscador" placeholder="Buscar...">
 			</form>
 		</div>
-
 		<img src="{% static 'inicio/img/logo.png' %}" alt="lilus" class="logoPortada mb-3" id="menu" onclick="window.location ='{% url 'inicio'%}';">
 		<ul class=" navegadorOrdenador">
 			<li id="m1"><a href="{% url 'inicio' %}">INICIO</a></li>
@@ -215,7 +216,7 @@
 		</div>
 	</div>
 	<!-- contenido -->
-	<div class="row ml-0 mr-0 pb-3" id="fondo">
+	<div class="row ml-0 mr-0 pb-2" id="fondo">
 		{% block content %}
 		{% endblock %}
 	</div>

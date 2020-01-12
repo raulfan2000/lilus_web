@@ -1114,9 +1114,18 @@ color: #747474;
 	width: 100%;
 }
 
+
+.iframeVideo{
+	height: 390px;
+}
+
 @media (max-width: 767px) {
 	#map{
 		height: calc(100vh - 180px);
 		width: 100%;
+	}
+
+	.iframeVideo{
+		height: 200px;
 	}
 }

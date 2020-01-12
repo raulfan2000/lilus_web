@@ -4,18 +4,30 @@
 
 <div class="col-12 videoPortada m-0 p-0 float-left">
 	<div class="videoContainer">
-		<video autoplay playsinline="" loop="loop" class="float-left" muted="" src="{% static 'inicio/lilusWeb1.mp4'%}" poster=""></video>
+		<video autoplay playsinline="" loop="loop" class="float-left" muted=""  poster="{% static 'inicio/lilusWeb.jpg' %}" src="{% static 'inicio/lilusWeb1.mp4'%}"></video>
 	</div>
 	<div class="fondoNegro" class="float-left">
 		<div class="nuevaColeccion">
 			<p>Detalles que marcan la diferencia</p>
 			<h5>Nueva colección</h5>
-			<a href="" class="btn btn-light pt-3 pb-3 rounded-0 shadow-sm border-0"role="button">COMUNIÓN 2020</a>
+			<a href="{% url 'coleccion' 'd0849296-5c56-4d40-b3ff-7fb7185e1c92' %}" class="btn btn-light pt-3 pb-3 rounded-0 shadow-sm border-0"role="button">COMUNIÓN 2020</a>
 		</div>
 	</div>
 </div>
 
-<!-- más cosis -->
+<div class="col-md-6 col-12 pt-md-3 pt-2 pr-lg-2 pl-lg-3 pl-2 pr-2">
+	<iframe width="100%" height="390" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flilusmodainfantil%2Fposts%2F145121400242274&width=500" ></iframe>
+</div>
+
+<div class="col-md-6 col-12 pt-md-3 pt-2 pl-lg-2 pr-lg-3 pl-2 pr-2">
+		<iframe class="iframeVideo" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Flilusmodainfantil%2Fvideos%2F601237653952991%2F&show_text=0&width=560" width="100%" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
+</div>
+
+
+
+
+
+<!-- más cosis
 <div class="col-md-6 col-12 pt-md-3 pt-2 pr-lg-3 pl-lg-2 pl-2 pr-2">
 	<div class="row m-0">
 		<div class="col-12 fotoPortada2"style="background: url(http://babylu.cl/wp-content/uploads/2018/10/WhatsApp-Image-2018-10-17-at-18.33.30-1.jpeg) no-repeat;  background-position: 50% center !important;">
@@ -25,7 +37,8 @@
 		</div>
 	</div>
 </div>
-<div class="col-md-6 col-12 pt-md-3 pt-2 pl-lg-3 pr-lg-2 pl-2 pr-2">
+
+<div class="col-md-6 col-12 pt-md-3 pt-2 pl-lg-2 pr-lg-3 pl-2 pr-2">
 	<div class="row m-0">
 		<div class="col-12 fotoPortada2" style="background: url({% static 'inicio/img/bautizoPortada.jpg'%}) no-repeat; background-position: 50% center !important;">
 			<div class="coleccion">
@@ -34,5 +47,5 @@
 		</div>
 	</div>
 </div>
-
+-->
 {% endblock %}
