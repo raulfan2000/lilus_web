@@ -18,9 +18,10 @@ def inicio(request):
 
 def contacto(request):
     context = {
-        'coleccion' : Coleccion.objects.filter(activa = True),
+        'coleccion' : Coleccion.objects.filter(activa = True).order_by('-nombre'),
     }
     return render(request, 'inicio/contacto.html', context)
+
 
 def envioMail(request):
     if request.method == 'POST':
@@ -72,13 +73,12 @@ def buscador(request):
     return render(request, 'inicio/buscador.html', context)
 
 
-
-
 def favoritos(request):
     context = {
         'coleccion' : Coleccion.objects.filter(activa = True).order_by('-nombre'),
     }
     return render(request, 'inicio/favoritos.html', context)
+
 
 def coleccion(request, id_coleccion):
     context = {
@@ -96,7 +96,6 @@ def blog(request):
     return render(request, 'inicio/blog.html', context)
 
 
-
 def cookies(request):
     context = {
         'coleccion' : Coleccion.objects.filter(activa = True).order_by('-nombre'),
@@ -104,14 +103,11 @@ def cookies(request):
     return render(request, 'inicio/cookies.html', context)
 
 
-
 def avisoLegal(request):
     context = {
         'coleccion' : Coleccion.objects.filter(activa = True).order_by('-nombre'),
     }
     return render(request, 'inicio/privacidad.html', context)
-
-
 
 
 def puntosDeVenta(request):

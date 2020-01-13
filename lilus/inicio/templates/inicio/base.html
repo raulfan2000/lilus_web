@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +15,7 @@
 	<!-- css bootstrap -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<!-- css otras fuentes -->
-	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|EB+Garamond|Karla|Lato&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=EB+Garamond|Karla|Lato&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css" type="text/css"/>
 	<script src="https://kit.fontawesome.com/ebc0e8d4d6.js"></script>
 	<!-- Etiqueta global de sitio (gtag.js) de Google Analytics -->
@@ -38,6 +37,10 @@
 	  Si continuas navegando estás aceptándolas. <a href="{% url 'cookies' %}">Leer más</a>
 	  <div onclick="controlcookies()" class="botonCookie"><i class="fas fa-times"></i></div>
 	</div>
+	<!-- marcador de favoritos	-->
+	<a href="{% url 'favoritos' %}" class="favoritosBoton">
+		<i class="far fa-heart"></i>
+	</a>
 	<!-- marcador de idioma
 	<div class="idiomaDiv">
 		<i class="fas fa-caret-down"></i>
@@ -49,131 +52,9 @@
 		</select>
 	</div>
 	-->
-	<!-- marcador de favoritos	-->
-	<a href="{% url 'favoritos' %}" class="favoritosBoton">
-		<i class="far fa-heart"></i>
-	</a>
 
-	<!--- navegador ordenador -->
-	<div class="pb-2 r-2 text-center navegadorOrdenadorDiv" style="background: #fff;" id="nav">
-		<div class="busqueda" id="activeBusquedaScroll">
-			<form action="{% url 'buscador' %}">
-				<div class="busquedaLupa"><i class="fas fa-search"></i></div>
-				<input type="text" required id="activarBuscador" placeholder="Buscar...">
-			</form>
-		</div>
-		<img src="{% static 'inicio/img/logo.png' %}" alt="lilus" class="logoPortada mb-3" id="menu" onclick="window.location ='{% url 'inicio'%}';">
-		<ul class=" navegadorOrdenador">
-			<li id="m1"><a href="{% url 'inicio' %}">INICIO</a></li>
-	    <li id="m2"><a>VESTIDOS DE COMUNIÓN</a>
-				<ul>
-					<div class="lineaSeparadoraMenu">
-						{% for coleccion in coleccion %}
-							{% if coleccion.tipo == 'Comunion' %}
-								<li><a  href="{% url 'coleccion' coleccion.id %}">{{coleccion.nombre}}</a></li>
-							{% endif %}
-						{% endfor %}
-						<!-- foto del menu -->
-						<div class="imagenMenu" style="background: url({% static 'inicio/img/portadaComunion.jpg'%}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
-					</div>
-				</ul>
-			</li>
-	    <li id="m3"><a>VESTIDOS DE VERANO</a>
-				<ul>
-					<div class="lineaSeparadoraMenu">
-						{% for coleccion in coleccion %}
-							{% if coleccion.tipo == 'Verano' %}
-								<li><a  href="{% url 'coleccion' coleccion.id%}">{{coleccion.nombre}}</a></li>
-							{% endif %}
-						{% endfor %}
-						<!-- foto del menu -->
-						<div class="imagenMenu" style="background: url({% static 'inicio/img/veranoPortada.jpg'%}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
-					</div>
-				</ul>
-			</li>
-	    <li id="m4"><a>VESTIDOS DE BAUTIZO</a>
-				<ul>
-					<div class="lineaSeparadoraMenu shadow-sm">
-						{% for coleccion in coleccion %}
-							{% if coleccion.tipo == 'Bautizo' %}
-								<li><a  href="{% url 'coleccion' coleccion.id%}">{{coleccion.nombre}}</a></li>
-							{% endif %}
-						{% endfor %}
-						<!-- foto del menu -->
-						<div class="imagenMenu" style="background: url({% static 'inicio/img/bautizoPortada.jpg'%}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
-					</div>
-				</ul>
-			</li>
-			<li id="m5"><a href="{% url 'blog' %}">BLOG</a></li>
-			<li id="m6"><a href="{% url 'contacto'%}" class="color: #000">CONTACTO</a></li>
-		</ul>
-	</div>
-	<!--- navegador movil -->
-	<div class="navegadorMovilDiv fixed-top shadow-sm ">
-		<img src="{% static 'inicio/img/logo.png' %}" alt="lilus" class="logoPortadaMovil" onclick="window.location ='{% url 'inicio'%}';">
-		<div class="menuPalos" id="ponerMenu">
-			<div class="menuPalo1"></div>
-			<div class="menuPalo2"></div>
-			<div class="menuPalo3"></div>
-		</div>
-		<div class="busqueda2" id="activarBuscadorMovil">
-			<i class="fas fa-search"></i>
-		</div>
-	</div>
 
-	<nav id="sidebar">
-		<ul class="menuMovil">
-			<li><a href="{% url 'inicio'%}">INICIO</a></li>
-			<li><a class="text-danger">VESTIDOS DE COMUNIÓN</a>
-				<ul>
-					{% for coleccion in coleccion %}
-						{% if coleccion.tipo == 'Comunion' %}
-							<li><a href="{% url 'coleccion' coleccion.id%}">· {{coleccion.nombre}}</a></li>
-						{% endif %}
-					{% endfor %}
-				</ul>
-			</li>
-
-			<li><a>VESTIDOS DE VERANO</a>
-				<ul>
-					{% for coleccion in coleccion %}
-						{% if coleccion.tipo == 'Verano' %}
-							<li><a href="{% url 'coleccion' coleccion.id%}">· {{coleccion.nombre}}</a></li>
-						{% endif %}
-					{% endfor %}
-				</ul>
-			</li>
-			<li><a>VESTIDOS DE BAUTIZO</a>
-				<ul>
-					{% for coleccion in coleccion %}
-						{% if coleccion.tipo == 'Bautizo' %}
-							<li><a href="{% url 'coleccion' coleccion.id%}">· {{coleccion.nombre}}</a></li>
-						{% endif %}
-					{% endfor %}
-				</ul>
-			</li>
-			<li><a  href="{% url 'blog' %}">BLOG</a></li>
-			<!--
-			<li><a  href="{% url 'puntosDeVenta' %}">PUNTOS DE VENTA</a></li>
-			-->
-			<li><a href="{% url 'contacto'%}">CONTACTO</a></li>
-		</ul>
-
-		<div class="row m-0 px-4">
-			<div class="col-12 border-top p-0 border-bottom">
-					<p class="textoFormulario mb-0 mt-3">Aviso legal</p>
-					<p class="textoFormulario mb-0">Politica de cookies</p>
-					<p class="mt-2" style="font-size: 12px;color:#747474">
-						E-mail: <a href="mailto:lilus@lilus.es" style="color:#747474; font-size: 12px">lilus@lilus.es</a> <br>
-						Teléfono: <a href="tel:+34965487509" style="color:#747474;font-size: 12px">965 48 75 09</a> <br>
-	        </p>
-			</div>
-			<div class="footer-copyright text-left py-3 text-dark" style="font-size: 12px">© 2020 - Lilus S.A.</div>
-		</div>
-
-	</nav>
-
-	<!-- overlay -->
+	{% include 'inicio/nav.html' %}
 	<div class="overlay"></div>
 	<!-- buscador para movil -->
 	<div class="buscadormovil shadow" id="buscadorMovil">
@@ -214,7 +95,6 @@
 			</div>
 		</div>
 	</div>
-
 	<!-- contenido -->
 	<div class="row ml-0 mr-0 pb-3" id="fondo">
 		{% block content %}
