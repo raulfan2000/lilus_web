@@ -33,11 +33,9 @@
 												<a class="lightbox" href="{{imagenes.imagen.url}}">
 													<div class="fotoAlbum"style="background: url({{imagenes.imagen.url}}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
 												</a>
-												<!--
-												<a href="" class="favoritosBotonAnadir shadow-sm">
+												<button href="#" class="agregar-favoritos favoritosBotonAnadir desactiveFav shadow-sm " id="{{ imagenes.id }}" value="{{ imagenes.imagen.url }}">
 													<i class="far fa-heart"></i>
-												</a>
-												-->
+												</button>
 										</div>
 								</div>
 							{% endfor %}

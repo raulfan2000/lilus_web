@@ -25,7 +25,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'UA-117040594-1');
   </script>
 </head>
@@ -50,13 +49,13 @@
 		</select>
 	</div>
 	-->
-	<!-- marcador de favoritos
+	<!-- marcador de favoritos	-->
 	<a href="{% url 'favoritos' %}" class="favoritosBoton">
 		<i class="far fa-heart"></i>
 	</a>
-	-->
+
 	<!--- navegador ordenador -->
-	<div class="pb-2 r-2 text-center border-bottom navegadorOrdenadorDiv" style="background: #fff;" id="nav">
+	<div class="pb-2 r-2 text-center navegadorOrdenadorDiv" style="background: #fff;" id="nav">
 		<div class="busqueda" id="activeBusquedaScroll">
 			<form action="{% url 'buscador' %}">
 				<div class="busquedaLupa"><i class="fas fa-search"></i></div>
@@ -215,11 +214,13 @@
 			</div>
 		</div>
 	</div>
+
 	<!-- contenido -->
 	<div class="row ml-0 mr-0 pb-3" id="fondo">
 		{% block content %}
 		{% endblock %}
 	</div>
+
 	<!-- java script -->
 	<script>
 		if (localStorage.controlcookie > 0){
@@ -231,12 +232,12 @@
 			cookie1.style.display='none';
 		}
 	</script>
+
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
 	<script> baguetteBox.run('.tz-gallery'); </script>
-	<script type="text/javascript" src="jquery-1.7.2.min.js"></script><script type="text/javascript"></script>
 	<script type="text/javascript" src="{% static 'inicio/main.js' %}"></script><script type="text/javascript"></script>
 </body>
 

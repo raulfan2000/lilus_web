@@ -4,16 +4,31 @@
 
 
 
-<div class="container">
-	<div class="row p-3 p-md-0">
-		<div class="col-12 mt-md-3 px-1 px-lg-2 pt-1 pt-md-2">
-			<h5 >Elementos favoritos</h5>
-		</div>
-		<div class="col-12 px-1 px-lg-2">
-			<p class="text-muted">Lo sentimos, aun no has guardado ningún elemento en favoritos.</p>
-		</div>
+<div class="col-12 nombreColeccion mt-3 mb-0 pt-2">
+	<p class="m-0" style="text-transform:uppercase">ELEMENTOS FAVORITOS</p>
+	<div class="text-center mt-3" id="noHay" style="width:100%;"></div>
+</div>
+
+<div class="col-12 pl-2 pr-2">
+	<div class="tz-gallery">
+			<div class="row m-0" id="favoritos">
+
+			</div>
 	</div>
 </div>
 
+
+<script>
+		// leemos los favoritos del localStorage
+		var favoritos = localStorage.getItem("favoritos") || "[]";
+		favoritos = JSON.parse(favoritos);
+		// para cada producto en favoritos
+		if(favoritos.length == 0){
+			document.querySelector("#noHay").append('Lo sentimos, hay elementos guardados.');
+		}
+		for (var x = 0; x < favoritos.length; x++) {
+			document.querySelector("#favoritos").insertAdjacentHTML('beforeend', '<div class="col-md-4 col-lg-3 col-6 p-1 p-lg-2"><div class="card border-0" style="position:relative"> <a class="lightbox" href=" '  + favoritos[x].url + ' "><div class="fotoAlbum"style="background: url('  + favoritos[x].url + ') no-repeat;background-size: cover; background-position: 40% center !important;"></div></a>   <button href="#" class="agregar-favoritos desactiveFav favoritosBotonAnadir shadow-sm " id="'  + favoritos[x].id + '" value="'  + favoritos[x].url + '"><i class="far fa-heart"></i></button></div></div>');
+		}
+</script>
 
 {% endblock %}

@@ -7,7 +7,7 @@
 	<p class="m-0" style="text-transform:uppercase">COLECCIÓN {{coleccion_unica.nombre}}</p>
 </div>
 
-<div class="col-12 pl-md-5 pr-md-5 pl-2 pr-2">
+<div class="col-12 pl-2 pr-2">
 	<div class="tz-gallery">
 			<div class="row m-0">
 				{% for imagen in imagen %}
@@ -16,15 +16,13 @@
 									<a class="lightbox" href="{{ imagen.imagen.url }}">
 									<div class="fotoAlbum"style="background: url({{ imagen.imagen.url }}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
 									</a>
-									<!---
-									<a href="" class="favoritosBotonAnadir shadow-sm">
+									<button href="#" class="agregar-favoritos favoritosBotonAnadir desactiveFav shadow-sm " id="{{ imagen.id }}" value="{{ imagen.imagen.url }}">
 										<i class="far fa-heart"></i>
-									</a>
-									-->
+									</button>
 							</div>
 					</div>
 				{% empty %}
-					<div style="height:calc(100vh - 365px);">Aún no hay imágenes disponibles para esta colección</div>
+					<div class="text-center" style="width:100%;height:calc(100vh - 365px);">Aún no hay imágenes disponibles para esta colección</div>
 				{% endfor %}
 			</div>
 	</div>
