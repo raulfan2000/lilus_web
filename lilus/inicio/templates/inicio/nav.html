@@ -1,16 +1,25 @@
 {% load static %}
+{% load i18n %}
 <!--- navegador ordenador -->
 <nav class="pb-2 r-2 text-center navegadorOrdenadorDiv" style="background: #fff;" id="nav">
+	<!--
+	<a class="logoPeque"href="https://www.facebook.com/lilusmodainfantil/">
+		<img src="{% static 'inicio/img/favicon.png'%}" alt="Lilus">
+	</a>
+	-->
+	<a class="facebookLink" href="https://www.facebook.com/lilusmodainfantil/">
+		<i class="fab fa-facebook-square"></i>
+	</a>
 	<div class="busqueda" id="activeBusquedaScroll">
 		<form action="{% url 'buscador' %}">
 			<div class="busquedaLupa"><i class="fas fa-search"></i></div>
-			<input type="text" required id="activarBuscador" placeholder="Buscar...">
+			<input type="text" required id="activarBuscador" placeholder="{% trans "Buscar" %}...">
 		</form>
 	</div>
-	<img src="{% static 'inicio/img/logo.png' %}" alt="lilus" class="logoPortada mb-3" id="menu" onclick="window.location ='{% url 'inicio'%}';">
+	<img src="{% static 'inicio/img/logo.png' %}" alt="lilus" class="logoPortada" id="menu" onclick="window.location ='{% url 'inicio'%}';">
 	<ul class=" navegadorOrdenador">
-		<li id="m1"><a href="{% url 'inicio' %}">INICIO</a></li>
-    <li id="m2"><a>VESTIDOS DE COMUNIÓN</a>
+		<li id="m1" class="menuInicio"><a href="{% url 'inicio' %}">{% trans "INICIO" %}</a></li>
+    <li id="m2" class="menuComunion"><a>{% trans "VESTIDOS DE COMUNIÓN" %}</a>
 			<ul>
 				<div class="lineaSeparadoraMenu">
 					{% for coleccion in coleccion %}
@@ -18,13 +27,13 @@
 							<li><a  href="{% url 'coleccion' coleccion.id %}">{{coleccion.nombre}}</a></li>
 						{% endif %}
 					{% endfor %}
-					<a role="button" class="buttonCatalogo">Catálogo 2020</a>
+					<a role="button" class="buttonCatalogo">{% trans "Catálogo 2020" %}</a>
 					<!-- foto del menu -->
 					<div class="imagenMenu" style="background: url({% static 'inicio/img/portadaComunion.jpg'%}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
 				</div>
 			</ul>
 		</li>
-    <li id="m3"><a>VESTIDOS DE VERANO</a>
+    <li id="m3" class="menuVerano"><a>{% trans "VESTIDOS DE VERANO" %}</a>
 			<ul>
 				<div class="lineaSeparadoraMenu">
 					{% for coleccion in coleccion %}
@@ -32,13 +41,13 @@
 							<li><a  href="{% url 'coleccion' coleccion.id%}">{{coleccion.nombre}}</a></li>
 						{% endif %}
 					{% endfor %}
-					<a role="button" class="buttonCatalogo">Catálogo 2020</a>
+					<!-- <a role="button" class="buttonCatalogo">{% trans "Catálogo 2020" %}</a> -->
 					<!-- foto del menu -->
-					<div class="imagenMenu" style="background: url({% static 'inicio/img/veranoPortada.jpg'%}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
+					<div class="imagenMenu" style="background: url({% static 'inicio/img/portadaVerano.jpg'%}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
 				</div>
 			</ul>
 		</li>
-    <li id="m4"><a>VESTIDOS DE BAUTIZO</a>
+    <li id="m4" class="menuBautizo"><a>{% trans "VESTIDOS DE BAUTIZO" %}</a>
 			<ul>
 				<div class="lineaSeparadoraMenu shadow-sm">
 					{% for coleccion in coleccion %}
@@ -46,14 +55,14 @@
 							<li><a  href="{% url 'coleccion' coleccion.id%}">{{coleccion.nombre}}</a></li>
 						{% endif %}
 					{% endfor %}
-					<a class="buttonCatalogo">Catálogo 2020</a>
+					<!-- <a role="button" class="buttonCatalogo">{% trans "Catálogo 2020" %}</a> -->
 					<!-- foto del menu -->
-					<div class="imagenMenu" style="background: url({% static 'inicio/img/bautizoPortada.jpg'%}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
+					<div class="imagenMenu" style="background: url({% static 'inicio/img/portadaBautizo.jpg'%}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
 				</div>
 			</ul>
 		</li>
-		<li id="m5"><a href="{% url 'blog' %}">BLOG</a></li>
-		<li id="m6"><a href="{% url 'contacto'%}" class="color: #000">CONTACTO</a></li>
+		<li id="m5" class="menuBlog"><a href="{% url 'blog' %}">{% trans "BLOG" %}</a></li>
+		<li id="m6" class="menuContacto"><a href="{% url 'contacto'%}" class="color: #000">{% trans "CONTACTO" %}</a></li>
 	</ul>
 </nav>
 
@@ -77,52 +86,49 @@
 
 <nav id="sidebar">
 	<ul class="menuMovil">
-		<li><a href="{% url 'inicio'%}">INICIO</a></li>
-		<li><a class="text-danger">VESTIDOS DE COMUNIÓN</a>
+			<li><a class="menuInicioMovil" href="{% url 'inicio'%}">{% trans "INICIO" %}</a></li>
+		<li><a class="menuComunionMovil">{% trans "VESTIDOS DE COMUNIÓN" %}</a>
 			<ul>
 				{% for coleccion in coleccion %}
 					{% if coleccion.tipo == 'Comunion' %}
 						<li><a href="{% url 'coleccion' coleccion.id%}">· {{coleccion.nombre}}</a></li>
 					{% endif %}
 				{% endfor %}
-					<li class="mb-3"> <a class="buttonCatalogoMovil">Catálogo 2020</a></li>
+					<li class="mb-3"> <a class="buttonCatalogoMovil">{% trans "Catálogo 2020" %}</a></li>
 			</ul>
 		</li>
 
-		<li><a>VESTIDOS DE VERANO</a>
+		<li><a class="menuVeranoMovil">{% trans "VESTIDOS DE VERANO" %}</a>
 			<ul>
 				{% for coleccion in coleccion %}
 					{% if coleccion.tipo == 'Verano' %}
 						<li><a href="{% url 'coleccion' coleccion.id%}">· {{coleccion.nombre}}</a></li>
 					{% endif %}
 				{% endfor %}
-				<li class="mb-3"> <a class="buttonCatalogoMovil">Catálogo 2020</a></li>
+				<!-- <li class="mb-3"> <a class="buttonCatalogoMovil">{% trans "Catálogo 2020" %}</a></li> -->
 			</ul>
 		</li>
-		<li><a>VESTIDOS DE BAUTIZO</a>
+		<li><a class="menuBautizoMovil">{% trans "VESTIDOS DE BAUTIZO" %}</a>
 			<ul>
 				{% for coleccion in coleccion %}
 					{% if coleccion.tipo == 'Bautizo' %}
 						<li><a href="{% url 'coleccion' coleccion.id%}">· {{coleccion.nombre}}</a></li>
 					{% endif %}
 				{% endfor %}
-				<li class="mb-3"> <a class="buttonCatalogoMovil">Catálogo 2020</a></li>
+				<!-- <li class="mb-3"> <a class="buttonCatalogoMovil">{% trans "Catálogo 2020" %}</a></li> -->
 			</ul>
 		</li>
-		<li><a  href="{% url 'blog' %}">BLOG</a></li>
-		<!--
-		<li><a  href="{% url 'puntosDeVenta' %}">PUNTOS DE VENTA</a></li>
-		-->
-		<li><a href="{% url 'contacto'%}">CONTACTO</a></li>
+		<li><a  class="menuBlogMovil" href="{% url 'blog' %}">{% trans "BLOG" %}</a></li>
+		<li><a class="menuContactoMovil" href="{% url 'contacto'%}">{% trans "CONTACTO" %}</a></li>
 	</ul>
 
 	<div class="row m-0 px-4">
 		<div class="col-12 border-top p-0 border-bottom">
-				<p class="textoFormulario mb-0 mt-3">Aviso legal</p>
-				<p class="textoFormulario mb-0">Politica de cookies</p>
+				<p class="textoFormulario mb-0 mt-3">{% trans "Aviso legal" %}</p>
+				<p class="textoFormulario mb-0">{% trans "Política de cookies" %}</p>
 				<p class="mt-2" style="font-size: 12px;color:#747474">
 					E-mail: <a href="mailto:lilus@lilus.es" style="color:#747474; font-size: 12px">lilus@lilus.es</a> <br>
-					Teléfono: <a href="tel:+34965487509" style="color:#747474;font-size: 12px">965 48 75 09</a> <br>
+					{% trans "Teléfono" %}: <a href="tel:+34965487509" style="color:#747474;font-size: 12px">965 48 75 09</a> <br>
         </p>
 		</div>
 		<div class="footer-copyright text-left py-3 text-dark" style="font-size: 12px">© 2020 - Lilus S.A.</div>

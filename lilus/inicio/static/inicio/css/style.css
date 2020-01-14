@@ -60,28 +60,124 @@ ul, ol{
 	min-height: calc(100vh - 125px - 170px);
 }
 
-
-.idiomaDiv{
-	position: absolute;
-	top: 20px;
-	left: 20px;
+.logoPeque{
+	position: fixed;
+	top: 7.5px;
+	left: 6px;
+	height: 31.5px;
+	width: 31.5px;
+	transition: .5s;
+	border-radius: 4px;
+	overflow: hidden;
+	display: none;
+	padding: 3px;
+	background-color: #000;
+}
+.logoPeque.active{
+	display: block;
+}
+.logoPeque img{
+	width: 100%;
+	height: 100%;
+}
+.facebookLink{
+	position: fixed;
+	z-index: 1031;
+	top: 5px;
+	left: 5px;
 	height: 30px;
-	width: 100px;
+	width: 30px;
+	transition: .5s;
+}
+.facebookLink i{
+	font-size: 30px;
+	color: #b8b8b8;
+	transition: .5s;
+}
+.facebookLink.active{
+	display: none;
+}
+.facebookLink.active i{
+		font-size: 36px;
+		transition: .5s;
 }
 
-.idiomaDiv i{
-		color: #747474;
+.idiomaDiv{
+	position: fixed;
+	z-index: 1031;
+	top: 15px;
+	right: 150px;
+	left: auto;
+	height: 36px;
+	width: 36px;
+	transition: .5s;
+}
+
+
+.idiomaDiv.active{
+	position: fixed;
+	z-index: 1031;
+	top: 6px;
+	right: 150px;
+	left: auto;
+	height: 36px;
+	width: 36px;
+	transition: .5s;
+}
+
+.idiomaDiv i.fa-globe-europe.active {
+    display: block;
+    position: absolute;
+    height: 36px;
+    width: 36px;
+    padding: 9px;
+    font-size: 18px;
+    color: #8c8c8c;
+		transition: .5s;
+}
+.idiomaDiv i.fa-caret-down.active {
+    display: block;
+    position: absolute;
+    height: 10px;
+    width: 9px;
+    padding: 0px 0px;
+    font-size: 10px;
+    left: -0px;
+    top: 13px;
+    color: #8c8c8c;
+		transition: .5s;
+}
+
+.idiomaDiv i.fa-caret-down{
+	display: block;
+	position: absolute;
+	height: 10px;
+	width: 9px;
+	padding: 0px 0px;
+	font-size: 10px;
+	left: -3px;
+	top: 13px;
+	color: #8c8c8c;
+	transition: .5s;
 }
 
 .idiomaDiv i.fa-globe-europe{
-	display: none;
+	display: block;
+	position: absolute;
+	height: 36px;
+	width: 36px;
+	padding: 7px;
+	font-size: 22px;
+	color: #8c8c8c;
+	transition: .5s;
 }
+
 .idiomaSelect{
-	height: 30px;
-	width: 81px;
-	background-color: #fff;
-	border:1px solid #fff;
-	color: #747474;
+	height: 36px;
+	width: 36px;
+	opacity: 0;
+	z-index: 999;
+	cursor: pointer;
 }
 
 
@@ -175,9 +271,6 @@ ul, ol{
 		width: 40px;
 	}
 
-	.idiomaDiv i.fa-caret-down{
-		display: none;
-	}
 
 	.idiomaDiv i.fa-globe-europe{
 		display: block;
@@ -187,6 +280,32 @@ ul, ol{
     padding: 18px 12px;
     font-size: 18px;
 	}
+	.idiomaDiv i.fa-caret-down{
+		display: none;
+	}
+
+	.idiomaDiv.active{
+		position: fixed;
+		z-index: 1031;
+		top: 0px;
+		right: 135px;
+		left: auto;
+		height: 50px;
+		width: 40px;
+	}
+
+	.idiomaDiv i.fa-globe-europe.active {
+		display: block;
+    position: absolute;
+    height: 50px;
+    width: 40px;
+    padding: 18px 12px;
+    font-size: 18px;
+	}
+	.idiomaDiv i.fa-caret-down.active {
+		display: none;
+	}
+
 
 	.idiomaSelect{
 		height: 50px;
@@ -285,10 +404,13 @@ color: #747474;
 	height: 125px;
 	display: block;
 	position: relative;
-	padding: 1rem 0 0 0;
+	padding: .75rem 0 0 0;
 	box-shadow: 0px 6px 10px -2px rgba(120, 120, 120, 0.1);
   -moz-box-shadow:  0px 6px 10px -2px rgba(120, 120, 120, 0.1);
   -webkit-box-shadow:  0px 6px 10px -2px rgba(120, 120, 120, 0.1);
+}
+.logoPortada{
+		margin-bottom: 1.25rem!important;
 }
 .navegadorDivScroll{
 	height: 48px!important;
@@ -326,7 +448,7 @@ color: #747474;
 
 .busqueda{
 	width: 130px;
-	height: 30px !important;
+	height: 36px !important;
 	text-align: center;
 	position: fixed;
 	top: 15px!important;
@@ -345,26 +467,28 @@ color: #747474;
   border: 0px;
   transition: .5s;
   z-index: 997;
-  background-color: #f2f2f2;
-	border-radius: 5px;
+	border: 1px solid #e7e7e7;
+	border-radius: 0px;
 }
 
 .busqueda.active{
-	width: 110px!important;
-  height: 30px !important;
+	width: 140px!important;
+	height: 36px !important;
   text-align: center!important;
   position: absolute!important;
-  top: 10px!important;
-  right: 10px!important;
+  top: 6px!important;
+  right: 6px!important;
   border: 0px!important;
   background: #fff!important;
-	transition: .5s;
+  transition: .5s;
 }
+
+
 
 .busquedaLupa{
 	position: absolute;
   left: 8px;
-  bottom: 8px;
+  bottom: 11px;
   font-size: 12px;
   z-index: 998;
   width: 16px;
@@ -884,16 +1008,18 @@ color: #747474;
 		color: #000;
 		margin-bottom: 0px;
 	  margin-top: 10px;
-	  font-size: 22px;
+	  font-size: 24px;
 		font-family: 'EB Garamond', serif;
 	}
 
 	.nuevaColeccion h5{
-		color: #000;
-		margin-bottom: 15px;
-		margin-top: 5px;
 		font-size: 14px;
-		font-family: 'Karla', serif;
+    font-family: 'Karla', serif;
+    color: #747474;
+    font-weight: 300;
+    text-align: center;
+		margin-top: 5px;
+		margin-bottom: 15px;
 	}
 
 	.nuevaColeccion a{
@@ -1140,9 +1266,6 @@ color: #747474;
 	width: 100%;
 }
 
-.iframeVideo{
-	height: 390px;
-}
 
 .buttonCatalogo{
 	background-color: #000;
@@ -1162,18 +1285,111 @@ color: #747474;
 		width: 100%;
 	}
 
-	.iframeVideo{
-		height: 200px;
-	}
 
 	.buttonCatalogoMovil{
-		background-color: #f2f2f2!important;
-	  color: #424242!important;
-	  padding: 10px!important;
-	  text-align: center!important;
-	  font-size: 12px!important;
-	  position: relative!important;
-		margin-bottom: 10px;
-		border-radius: 5px;
+		background-color: #424242!important;
+    color: #fff!important;
+    padding: 10px!important;
+    text-align: center!important;
+    font-size: 12px!important;
+    position: relative!important;
+    margin-bottom: 10px;
+    border-radius: 5px;
+	}
+}
+
+
+
+
+.fotoSecundariaIzq{
+	height: 800px;
+}
+.fotoSecundariaIzq div, .derechaImg div{
+	height: 100%;
+	width: 100%;
+}
+.derechaTexto{
+	height: 300px;
+	width: 100%;
+	text-align:center;
+	position: relative;
+}
+.derechaTexto > div{
+	width: 100%;
+	height: auto;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%,-50%);
+}
+
+.derechaImg{
+	width: 100%;
+	height: 500px;
+}
+
+.derechaTexto h1{
+	font-size: 35px;
+	font-family: 'EB Garamond', serif;
+	color: #000;
+	font-weight: 900;
+	text-align: center;
+}
+
+.derechaTexto h2{
+	font-size: 16px;
+	font-family: 'Karla', serif;
+	color: #747474;
+	font-weight: 300;
+	text-align: center;
+}
+.derechaTexto button{
+	text-align:center;
+}
+
+.border-sm-right{
+	border-right: 1px solid #dee2e6!important;
+}
+
+@media (max-width: 767px) {
+	.fotoSecundariaIzq{
+		height: 450px;
+	}
+
+	.border-sm-right{
+		border-right:0px solid #dee2e6!important;
+	}
+
+	.derechaTexto{
+		height: auto;
+		width: 100%;
+	}
+	.derechaImg{
+		width: 100%;
+		height: 300px;
+	}
+	.derechaTexto > div{
+		width: 100%;
+		height: auto;
+		position: relative;
+		left: auto;
+		top: auto;
+		transform:none;
+	}
+	.derechaTexto h1{
+		font-size: 24px;
+		font-family: 'EB Garamond', serif;
+		color: #000;
+		font-weight: 300;
+		text-align: center;
+	}
+
+	.derechaTexto h2{
+		font-size: 14px;
+		font-family: 'Karla', serif;
+		color: #747474;
+		font-weight: 300;
+		text-align: center;
 	}
 }

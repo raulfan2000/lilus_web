@@ -1,41 +1,77 @@
 {% extends "inicio/base.html" %}
 {% load static %}
+{% load i18n %}
 {% block content %}
+
+<style>
+	.menuInicio{
+		background: #000!important;
+	}
+	.menuInicio > a{
+		color: #fff!important;
+	}
+	.menuInicioMovil{
+		color: #dc3545!important;
+	}
+	#fondo{
+		padding-bottom:0!important
+	}
+</style>
 
 <div class="col-12 videoPortada m-0 p-0 float-left">
 	<div class="videoContainer">
-		<video autoplay playsinline="" loop="loop" class="float-left" muted=""  poster="{% static 'inicio/lilusWeb.jpg' %}">
-			<source src="{% static 'inicio/lilusWeb1.mp4'%}" type="video/mp4">
-			Vaya. Tu navegador no soporta el vídeo.
+		<video autoplay playsinline="" loop="loop" class="float-left" muted=""  poster="{% static 'inicio/img/portada.jpg' %}">
+			<source src="{% static 'inicio/video/portada.mp4'%}" type="video/mp4">
 		</video>
 	</div>
 	<div class="fondoNegro" class="float-left">
 		<div class="nuevaColeccion">
-			<p>Detalles que marcan la diferencia</p>
-			<h5>Nueva colección</h5>
-			<a href="{% url 'coleccion' 'd0849296-5c56-4d40-b3ff-7fb7185e1c92' %}" class="btn btn-light pt-3 pb-3 rounded-0 shadow-sm border-0"role="button">COMUNIÓN 2020</a>
+			<p>{% trans "Detalles que marcan la diferencia" %}</p>
+			<h5>{% trans "Nueva colección" %}</h5>
+			<a href="{% url 'coleccion' 'd0849296-5c56-4d40-b3ff-7fb7185e1c92' %}" class="btn btn-light pt-3 pb-3 rounded-0 shadow-sm border-0"role="button">{% trans "COMUNIÓN 2020" %}</a>
 		</div>
 	</div>
 </div>
 
 
-<div class="col-md-6 col-12 pt-md-3 pt-2 pr-lg-2 pl-lg-3 pl-2 pr-2">
-
-	<div class="bg-light p-0 m-0" style="height:390px">
-		<iframe width="100%" class="p-0 m-0" height="390px" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flilusmodainfantil%2Fposts%2F148402079914206&width=560"  ></iframe>
+<div class="col-12 p-0  border-top">
+	<div class="row m-0">
+		<div class="col-md-6 fotoSecundariaIzq p-md-5 p-4 border-bottom border-sm-right">
+			<div style="background: url({% static 'inicio/img/fotoSecundaria.jpg'%}) no-repeat;background-size: cover; background-position: center !important;"></div>
+		</div>
+		<div class="col-md-6 p-0 fotoSecundariaDer">
+			<div class="row m-0">
+				<div class="derechaTexto p-md-5 p-4 border-bottom">
+					<div>
+						<h1 class="mb-0">{% trans "Alta costura en moda infantil" %}</h1>
+						<h2 class="mb-0 mt-md-3 mt-2">{% trans "Descarga nuestro catálogo" %}</h2>
+						<button class="btn btn-dark px-4 py-2 rounded-0 mt-md-4 mt-3">{% trans "Descargar" %}</button>
+					</div>
+				</div>
+				<div class="derechaImg p-md-5 p-4 border-bottom">
+					<div style="background: url({% static 'inicio/img/fotoSecundaria2.jpg'%}) no-repeat;background-size: cover; background-position:center !important;"></div>
+				</div>
+			</div>
+		</div>
 	</div>
-<!--
-	<div class="bg-light p-0 m-0 iframeVideo">
-		<iframe class="iframeVideo" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Flilusmodainfantil%2Fvideos%2F838872193219908%2F&show_text=0&width=560" width="100%" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
-	</div>
-	-->
-
-
 </div>
 
-<div class="col-md-6 col-12 pt-md-3 pt-2 pl-lg-2 pr-lg-3 pl-2 pr-2">
-	<div class="bg-light p-0 m-0 iframeVideo">
-		<iframe class="iframeVideo" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Flilusmodainfantil%2Fvideos%2F601237653952991%2F&show_text=0&width=560" width="100%" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
+
+<div class="col-md-4 p-md-5 p-4 border-sm-right border-bottom">
+	<div class="bg-light p-0 m-0" style="height:300px">
+		<iframe width="100%" class="p-0 m-0" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flilusmodainfantil%2Fposts%2F148402079914206&width=500"  ></iframe>
+	</div>
+</div>
+
+<div class="col-md-4 p-md-5 p-4 border-bottom border-sm-right">
+	<div class="bg-light p-0 m-0" style="height:300px">
+		<iframe width="100%" class="p-0 m-0" data-show-text="true" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flilusmodainfantil%2Fposts%2F149023906518690&width=500"  ></iframe>
+	</div>
+</div>
+
+<div class="col-md-4 p-md-5 p-4 border-bottom">
+	<div class="bg-light p-0 m-0" style="height:300px">
+		<iframe width="100%" class="p-0 m-0" data-show-text="true" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flilusmodainfantil%2Fposts%2F148662349888179&width=500"  ></iframe>
 	</div>
 </div>
 

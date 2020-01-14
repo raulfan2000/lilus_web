@@ -2,6 +2,17 @@
 {% load static %}
 {% block content %}
 
+<style>
+	{% if coleccion_unica.tipo == 'Verano' %}.menuVerano {% elif coleccion_unica.tipo == 'Comunion' %} .menuComunion {% else %} .menuBautizo {% endif %}{
+		background: #000!important;
+	}
+	{% if coleccion_unica.tipo == 'Verano' %}.menuVerano {% elif coleccion_unica.tipo == 'Comunion' %} .menuComunion {% else %} .menuBautizo {% endif %} > a{
+		color: #fff!important;
+	}
+	{% if coleccion_unica.tipo == 'Verano' %}.menuVeranoMovil {% elif coleccion_unica.tipo == 'Comunion' %} .menuComunionMovil {% else %} .menuBautizoMovil {% endif %}{
+		color: #dc3545!important;
+	}
+</style>
 
 <div class="col-12 nombreColeccion mt-3 mb-3 pt-2">
 	<p class="m-0" style="text-transform:uppercase">COLECCIÓN {{coleccion_unica.nombre}}</p>
