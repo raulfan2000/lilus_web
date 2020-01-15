@@ -29,21 +29,20 @@
 					{% endfor %}
 					<a role="button" class="buttonCatalogo">{% trans "Catálogo 2020" %}</a>
 					<!-- foto del menu -->
-					<div class="imagenMenu" style="background: url({% static 'inicio/img/portadaComunion.jpg'%}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
+					<div class="imagenMenu" style="background: url({% static 'inicio/img/portadaComunion.jpg'%}) no-repeat;background-size: cover; background-position:center !important;"></div>
 				</div>
 			</ul>
 		</li>
     <li id="m3" class="menuVerano"><a>{% trans "VESTIDOS DE VERANO" %}</a>
 			<ul>
-				<div class="lineaSeparadoraMenu">
+				<div class="lineaSeparadoraMenu shadow">
 					{% for coleccion in coleccion %}
 						{% if coleccion.tipo == 'Verano' %}
 							<li><a  href="{% url 'coleccion' coleccion.id%}">{{coleccion.nombre}}</a></li>
 						{% endif %}
 					{% endfor %}
-					<!-- <a role="button" class="buttonCatalogo">{% trans "Catálogo 2020" %}</a> -->
 					<!-- foto del menu -->
-					<div class="imagenMenu" style="background: url({% static 'inicio/img/portadaVerano.jpg'%}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
+					<div class="imagenMenu" style="background: url({% static 'inicio/img/portadaVerano.jpg'%}) no-repeat;background-size: cover; background-position: center !important;"></div>
 				</div>
 			</ul>
 		</li>
@@ -55,9 +54,8 @@
 							<li><a  href="{% url 'coleccion' coleccion.id%}">{{coleccion.nombre}}</a></li>
 						{% endif %}
 					{% endfor %}
-					<!-- <a role="button" class="buttonCatalogo">{% trans "Catálogo 2020" %}</a> -->
 					<!-- foto del menu -->
-					<div class="imagenMenu" style="background: url({% static 'inicio/img/portadaBautizo.jpg'%}) no-repeat;background-size: cover; background-position: 40% center !important;"></div>
+					<div class="imagenMenu" style="background: url({% static 'inicio/img/portadaBautizo.jpg'%}) no-repeat;background-size: cover; background-position: center !important;"></div>
 				</div>
 			</ul>
 		</li>
@@ -65,7 +63,6 @@
 		<li id="m6" class="menuContacto"><a href="{% url 'contacto'%}" class="color: #000">{% trans "CONTACTO" %}</a></li>
 	</ul>
 </nav>
-
 <!--- navegador movil -->
 <!--- navegador movil -->
 <!--- navegador movil -->
@@ -105,7 +102,6 @@
 						<li><a href="{% url 'coleccion' coleccion.id%}">· {{coleccion.nombre}}</a></li>
 					{% endif %}
 				{% endfor %}
-				<!-- <li class="mb-3"> <a class="buttonCatalogoMovil">{% trans "Catálogo 2020" %}</a></li> -->
 			</ul>
 		</li>
 		<li><a class="menuBautizoMovil">{% trans "VESTIDOS DE BAUTIZO" %}</a>
@@ -115,7 +111,6 @@
 						<li><a href="{% url 'coleccion' coleccion.id%}">· {{coleccion.nombre}}</a></li>
 					{% endif %}
 				{% endfor %}
-				<!-- <li class="mb-3"> <a class="buttonCatalogoMovil">{% trans "Catálogo 2020" %}</a></li> -->
 			</ul>
 		</li>
 		<li><a  class="menuBlogMovil" href="{% url 'blog' %}">{% trans "BLOG" %}</a></li>

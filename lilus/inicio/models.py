@@ -44,8 +44,8 @@ class Foto(models.Model):
     def save(self, force_insert=False, force_update=False, using=None):
         super().save()
         img1 = Image.open(self.imagen.path)
-        if img1.height > 1300 or img1.width > 1300 :
-            output_size = (1300,1300)
+        if img1.height > 1400 or img1.width > 1400 :
+            output_size = (1400,1400)
             img1.thumbnail((output_size), Image.ANTIALIAS)
             img1.save(self.imagen.path)
     def __str__ (self):

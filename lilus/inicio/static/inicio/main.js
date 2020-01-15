@@ -86,3 +86,21 @@ $('.favoritosBotonAnadir').click(function () {
 $('#idiomaSelector').change(function(){
 	document.forms["submitIdioma"].submit();
 });
+
+
+$('#m2, #m3, #m4').mouseover(function(){
+		$('.overlay2').addClass('active');
+});
+$('#m2, #m3, #m4').mouseout(function(){
+		$('.overlay2').removeClass('active');
+});
+
+
+if (localStorage.controlcookie > 0){
+	document.getElementById('cookie1').style.display = 'none';
+}
+function controlcookies() {
+	localStorage.controlcookie = (localStorage.controlcookie || 0);
+	localStorage.controlcookie++;
+	cookie1.style.display='none';
+}

@@ -24,7 +24,7 @@
 		favoritos = JSON.parse(favoritos);
 		// para cada producto en favoritos
 		if(favoritos.length == 0){
-			document.querySelector("#noHay").append('Lo sentimos, hay elementos guardados.');
+			document.querySelector("#noHay").append('Lo sentimos, no hay elementos guardados.');
 		}
 		for (var x = 0; x < favoritos.length; x++) {
 			document.querySelector("#favoritos").insertAdjacentHTML('beforeend', '<div class="col-md-4 col-lg-3 col-6 p-1 p-lg-2"><div class="card border-0" style="position:relative"> <a class="lightbox" href=" '  + favoritos[x].url + ' "><div class="fotoAlbum"style="background: url('  + favoritos[x].url + ') no-repeat;background-size: cover; background-position: 40% center !important;"></div></a>   <button href="#" class="agregar-favoritos desactiveFav favoritosBotonAnadir shadow-sm " id="'  + favoritos[x].id + '" value="'  + favoritos[x].url + '"><i class="far fa-heart"></i></button></div></div>');
