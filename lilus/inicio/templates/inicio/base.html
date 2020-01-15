@@ -34,9 +34,14 @@
 		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v5.0"></script>
 		 <!-- cookies -->
 		<div class="cookiesms shadow-lg " id="cookie1">
-		  Esta web utiliza cookies,
-		  Si continuas navegando estás aceptándolas. <a href="{% url 'cookies' %}">Leer más</a>
-		  <div onclick="controlcookies()" class="botonCookie"><i class="fas fa-times"></i></div>
+			<h5>Ley de Cookies  Europea</h5>
+			<p class="mb-0">
+				Utilizamos Cookies propias y de terceros para elaborar información estadística
+				y mostrarle contenido personalizado a través del análisis de su navegación que
+				compartimos con nuestros partners. Si continuas navegando aceptas nuestro
+				<a href="{% url 'cookies' %}">uso de cookies</a>
+			</p>
+		  <div onclick="controlcookies()" class="botonCookie">Aceptar</div>
 		</div>
 		<!-- marcador de favoritos	-->
 		<a href="{% url 'favoritos' %}" class="favoritosBoton">

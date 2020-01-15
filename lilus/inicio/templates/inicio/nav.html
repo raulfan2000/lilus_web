@@ -1,15 +1,11 @@
 {% load static %}
 {% load i18n %}
-<!--- navegador ordenador -->
+
+<!-----------
+	=	Navegador ordenador
+------------->
+
 <nav class="pb-2 r-2 text-center navegadorOrdenadorDiv" style="background: #fff;" id="nav">
-	<!--
-	<a class="logoPeque"href="https://www.facebook.com/lilusmodainfantil/">
-		<img src="{% static 'inicio/img/favicon.png'%}" alt="Lilus">
-	</a>
-	-->
-	<a class="facebookLink" href="https://www.facebook.com/lilusmodainfantil/">
-		<i class="fab fa-facebook-square"></i>
-	</a>
 	<div class="busqueda" id="activeBusquedaScroll">
 		<form action="{% url 'buscador' %}">
 			<div class="busquedaLupa"><i class="fas fa-search"></i></div>
@@ -28,7 +24,6 @@
 						{% endif %}
 					{% endfor %}
 					<a role="button" class="buttonCatalogo">{% trans "Catálogo 2020" %}</a>
-					<!-- foto del menu -->
 					<div class="imagenMenu" style="background: url({% static 'inicio/img/portadaComunion.jpg'%}) no-repeat;background-size: cover; background-position:center !important;"></div>
 				</div>
 			</ul>
@@ -41,7 +36,6 @@
 							<li><a  href="{% url 'coleccion' coleccion.id%}">{{coleccion.nombre}}</a></li>
 						{% endif %}
 					{% endfor %}
-					<!-- foto del menu -->
 					<div class="imagenMenu" style="background: url({% static 'inicio/img/portadaVerano.jpg'%}) no-repeat;background-size: cover; background-position: center !important;"></div>
 				</div>
 			</ul>
@@ -54,7 +48,6 @@
 							<li><a  href="{% url 'coleccion' coleccion.id%}">{{coleccion.nombre}}</a></li>
 						{% endif %}
 					{% endfor %}
-					<!-- foto del menu -->
 					<div class="imagenMenu" style="background: url({% static 'inicio/img/portadaBautizo.jpg'%}) no-repeat;background-size: cover; background-position: center !important;"></div>
 				</div>
 			</ul>
@@ -63,12 +56,11 @@
 		<li id="m6" class="menuContacto"><a href="{% url 'contacto'%}" class="color: #000">{% trans "CONTACTO" %}</a></li>
 	</ul>
 </nav>
-<!--- navegador movil -->
-<!--- navegador movil -->
-<!--- navegador movil -->
-<!--- navegador movil -->
-<!--- navegador movil -->
-<!--- navegador movil -->
+
+<!-----------
+	=	Navegador movil
+------------->
+
 <div class="navegadorMovilDiv fixed-top shadow-sm ">
 	<img src="{% static 'inicio/img/logo.png' %}" alt="lilus" class="logoPortadaMovil" onclick="window.location ='{% url 'inicio'%}';">
 	<div class="menuPalos" id="ponerMenu">
@@ -80,6 +72,10 @@
 		<i class="fas fa-search"></i>
 	</div>
 </div>
+
+<!-----------
+	=	Sidebar movil
+------------->
 
 <nav id="sidebar">
 	<ul class="menuMovil">
