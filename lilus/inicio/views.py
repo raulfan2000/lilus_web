@@ -67,7 +67,7 @@ def buscador(request):
     context = {
         'busqueda' : busqueda,
         'coleccion' : Coleccion.objects.filter(activa = True).order_by('-nombre'),
-        'imagenes' : Foto.objects.filter(coleccion__nombre_real__icontains = unidecode(request.GET.get('busqueda'))),
+        'imagenes' : Foto.objects.filter(coleccion__nombre_real__icontains = unidecode(request.GET.get('busqueda')), coleccion__activa = True),
     }
 
     return render(request, 'inicio/buscador.html', context)
