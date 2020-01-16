@@ -89,7 +89,7 @@ def coleccion(request, id_coleccion):
     context = {
         'coleccion' : Coleccion.objects.filter(activa = True).order_by('-nombre'),
         'coleccion_unica' : Coleccion.objects.get(id = id_coleccion),
-        'imagen' : Foto.objects.filter(coleccion = id_coleccion).order_by('-creacion'),
+        'imagen' : Foto.objects.filter(coleccion = id_coleccion).order_by('-nombre'),
     }
     return render(request, 'inicio/coleccion.html', context)
 
