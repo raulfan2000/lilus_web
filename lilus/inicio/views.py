@@ -7,6 +7,8 @@ from .models import Coleccion, Foto
 from unidecode import unidecode
 from .forms import formularioContacto
 from .mail import contactoMail
+from django.db.models import Q
+
 
 ###### información ######
 def inicio(request):
@@ -63,10 +65,14 @@ def buscador(request):
     if busqueda is '':
         busqueda = 'Todos'
 
+    qset = (
+        Q(coleccion__nombre_real__icontains = unidecode(request.GET.get('busqueda'))) |
+        Q(nombre__icontains = unidecode(request.GET.get('busqueda')))
+    )
     context = {
         'busqueda' : busqueda,
         'coleccion' : Coleccion.objects.filter(activa = True).order_by('-nombre'),
-        'imagenes' : Foto.objects.filter(coleccion__nombre_real__icontains = unidecode(request.GET.get('busqueda')), coleccion__activa = True),
+        'imagenes' : Foto.objects.filter(qset, coleccion__activa = True).distinct(),
     }
 
     return render(request, 'inicio/buscador.html', context)
