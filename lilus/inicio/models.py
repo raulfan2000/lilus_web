@@ -50,7 +50,7 @@ class Foto(models.Model):
             img1.thumbnail((output_size), Image.ANTIALIAS)
             img1.save(self.imagen.path)
     def __str__ (self):
-        return f'{str(self.coleccion)} {str(self.id)}'
+        return f'{str(self.coleccion)} {str(self.nombre)}'
 
 # contacto
 class Contacto(models.Model):
