@@ -23,7 +23,7 @@
 							<li><a  href="{% url 'coleccion' coleccion.id %}">{{coleccion.nombre}}</a></li>
 						{% endif %}
 					{% endfor %}
-					<a role="button" class="buttonCatalogo">{% trans "Catálogo 2020" %}</a>
+					<a role="button" href="{% static 'inicio/pdf/LILUS2020.pdf' %}" download="LILUS2020" class="buttonCatalogo">{% trans "Catálogo 2020" %}</a>
 					<div class="imagenMenu" style="background: url({% static 'inicio/img/portadaComunion.jpg'%}) no-repeat;background-size: cover; background-position:center !important;"></div>
 				</div>
 			</ul>
@@ -87,7 +87,7 @@
 						<li><a href="{% url 'coleccion' coleccion.id%}">· {{coleccion.nombre}}</a></li>
 					{% endif %}
 				{% endfor %}
-					<li class="mb-3"> <a class="buttonCatalogoMovil">{% trans "Catálogo 2020" %}</a></li>
+					<li class="mb-3"> <a role="button" href="{% static 'inicio/pdf/LILUS2020.pdf' %}" download="LILUS2020" class="buttonCatalogoMovil">{% trans "Catálogo 2020" %}</a></li>
 			</ul>
 		</li>
 
