@@ -59,7 +59,6 @@ def envioMail(request):
 
 
 def buscador(request):
-
     busqueda = request.GET.get('busqueda')
     if busqueda is '':
         busqueda = 'Todos'

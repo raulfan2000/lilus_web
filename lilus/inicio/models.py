@@ -38,6 +38,7 @@ class Foto(models.Model):
     id = models.UUIDField(_("ID"), primary_key=True, default=uuid.uuid4, editable=False)
     creacion = models.DateTimeField(auto_now_add=True, blank=True)
     imagen = models.ImageField(default='default.jpg', upload_to='galeria_imagenes')
+    nombre = models.CharField(max_length=32, default='00000')
     # coleccion
     coleccion = models.ForeignKey(Coleccion, on_delete=models.SET_NULL, null=True)
     # guardar foto en la bbdd

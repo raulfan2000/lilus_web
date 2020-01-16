@@ -25,12 +25,15 @@
 					<div class="col-md-4 col-lg-3 col-6  p-1 p-lg-2">
 							<div class="card border-0" style=" position:relative">
 									<a class="lightbox" href="{{ imagen.imagen.url }}">
-									<div class="fotoAlbum"style="background: url({{ imagen.imagen.url }}) no-repeat;background-size: cover; background-position: center !important;"></div>
+										<div class="fotoAlbum"style="background: url({{ imagen.imagen.url }}) no-repeat;background-size: cover; background-position: center !important;"></div>
 									</a>
 									<button href="#" class="agregar-favoritos favoritosBotonAnadir desactiveFav shadow-sm " id="{{ imagen.id }}" value="{{ imagen.imagen.url }}">
 										<i class="far fa-heart"></i>
 									</button>
 							</div>
+							<p class="nombreVestido">
+								{{ imagen.nombre }}
+							</p>
 					</div>
 				{% empty %}
 					<div class="text-center" style="width:100%;height:calc(100vh - 365px);">Aún no hay imágenes disponibles para esta colección</div>

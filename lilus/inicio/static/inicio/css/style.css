@@ -1178,6 +1178,14 @@ h1{
 	color: #fff;
 }
 
+.nombreVestido{
+	text-align: center;
+	margin-top: 5px;
+	font-size: 15px;
+	color: #000;
+	font-weight: 700;
+}
+
 @media (max-width: 767px){
 	.fotoAlbum{
 		height: 260px;
