@@ -1,9 +1,7 @@
 {% load static %}
 {% load i18n %}
 
-<!-----------
-	=	Navegador ordenador
-------------->
+<!-- =	Navegador ordenador -->
 
 <nav class="pb-2 r-2 text-center navegadorOrdenadorDiv" style="background: #fff;" id="nav">
 	<div class="busqueda" id="activeBusquedaScroll">
@@ -20,7 +18,7 @@
 				<div class="lineaSeparadoraMenu">
 					{% for coleccion in coleccion %}
 						{% if coleccion.tipo == 'Comunion' %}
-							<li><a  href="{% url 'coleccion' coleccion.id %}">{{coleccion.nombre}}</a></li>
+							<li><a  href="{% url 'coleccion' coleccion.nombre_real %}">{{coleccion.nombre}}</a></li>
 						{% endif %}
 					{% endfor %}
 					<a role="button" href="{% static 'inicio/pdf/LILUS2020.pdf' %}" download="LILUS2020" class="buttonCatalogo">{% trans "Catálogo 2020" %}</a>
@@ -33,7 +31,7 @@
 				<div class="lineaSeparadoraMenu shadow">
 					{% for coleccion in coleccion %}
 						{% if coleccion.tipo == 'Verano' %}
-							<li><a  href="{% url 'coleccion' coleccion.id%}">{{coleccion.nombre}}</a></li>
+							<li><a  href="{% url 'coleccion' coleccion.nombre_real%}">{{coleccion.nombre}}</a></li>
 						{% endif %}
 					{% endfor %}
 					<div class="imagenMenu" style="background: url({% static 'inicio/img/portadaVerano.jpg'%}) no-repeat;background-size: cover; background-position: center !important;"></div>
@@ -45,7 +43,7 @@
 				<div class="lineaSeparadoraMenu shadow-sm">
 					{% for coleccion in coleccion %}
 						{% if coleccion.tipo == 'Bautizo' %}
-							<li><a  href="{% url 'coleccion' coleccion.id%}">{{coleccion.nombre}}</a></li>
+							<li><a  href="{% url 'coleccion' coleccion.nombre_real%}">{{coleccion.nombre}}</a></li>
 						{% endif %}
 					{% endfor %}
 					<div class="imagenMenu" style="background: url({% static 'inicio/img/portadaBautizo.jpg'%}) no-repeat;background-size: cover; background-position: center !important;"></div>
@@ -57,9 +55,7 @@
 	</ul>
 </nav>
 
-<!-----------
-	=	Navegador movil
-------------->
+<!-- =	Navegador movil -->
 
 <div class="navegadorMovilDiv fixed-top shadow-sm ">
 	<img src="{% static 'inicio/img/logo.png' %}" alt="lilus" class="logoPortadaMovil" onclick="window.location ='{% url 'inicio'%}';">
@@ -73,9 +69,7 @@
 	</div>
 </div>
 
-<!-----------
-	=	Sidebar movil
-------------->
+<!-- =	sidebar movil -->
 
 <nav id="sidebar">
 	<ul class="menuMovil">
@@ -84,7 +78,7 @@
 			<ul>
 				{% for coleccion in coleccion %}
 					{% if coleccion.tipo == 'Comunion' %}
-						<li><a href="{% url 'coleccion' coleccion.id%}">· {{coleccion.nombre}}</a></li>
+						<li><a href="{% url 'coleccion' coleccion.nombre_real%}">· {{coleccion.nombre}}</a></li>
 					{% endif %}
 				{% endfor %}
 					<li class="mb-3"> <a role="button" href="{% static 'inicio/pdf/LILUS2020.pdf' %}" download="LILUS2020" class="buttonCatalogoMovil">{% trans "Catálogo 2020" %}</a></li>
@@ -95,7 +89,7 @@
 			<ul>
 				{% for coleccion in coleccion %}
 					{% if coleccion.tipo == 'Verano' %}
-						<li><a href="{% url 'coleccion' coleccion.id%}">· {{coleccion.nombre}}</a></li>
+						<li><a href="{% url 'coleccion' coleccion.nombre_real%}">· {{coleccion.nombre}}</a></li>
 					{% endif %}
 				{% endfor %}
 			</ul>
@@ -104,7 +98,7 @@
 			<ul>
 				{% for coleccion in coleccion %}
 					{% if coleccion.tipo == 'Bautizo' %}
-						<li><a href="{% url 'coleccion' coleccion.id%}">· {{coleccion.nombre}}</a></li>
+						<li><a href="{% url 'coleccion' coleccion.nombre_real%}">· {{coleccion.nombre}}</a></li>
 					{% endif %}
 				{% endfor %}
 			</ul>
@@ -115,11 +109,11 @@
 
 	<div class="row m-0 px-4">
 		<div class="col-12 border-top p-0 border-bottom">
-				<p class="textoFormulario mb-0 mt-3">{% trans "Aviso legal" %}</p>
-				<p class="textoFormulario mb-0">{% trans "Política de cookies" %}</p>
-				<p class="mt-2" style="font-size: 12px;color:#747474">
-					E-mail: <a href="mailto:lilus@lilus.es" style="color:#747474; font-size: 12px">lilus@lilus.es</a> <br>
-					{% trans "Teléfono" %}: <a href="tel:+34965487509" style="color:#747474;font-size: 12px">965 48 75 09</a> <br>
+			<p class="textoFormulario mb-0 mt-3">{% trans "Aviso legal" %}</p>
+			<p class="textoFormulario mb-0">{% trans "Política de cookies" %}</p>
+			<p class="mt-2" style="font-size: 12px;color:#747474">
+				E-mail: <a href="mailto:lilus@lilus.es" style="color:#747474; font-size: 12px">lilus@lilus.es</a> <br>
+				{% trans "Teléfono" %}: <a href="tel:+34965487509" style="color:#747474;font-size: 12px">965 48 75 09</a> <br>
         </p>
 		</div>
 		<div class="footer-copyright text-left py-3 text-dark" style="font-size: 12px">© 2020 - Lilus S.A.</div>

@@ -85,11 +85,11 @@ def favoritos(request):
     return render(request, 'inicio/favoritos.html', context)
 
 
-def coleccion(request, id_coleccion):
+def coleccion(request, nombre_coleccion):
     context = {
         'coleccion' : Coleccion.objects.filter(activa = True).order_by('-nombre'),
-        'coleccion_unica' : Coleccion.objects.get(id = id_coleccion),
-        'imagen' : Foto.objects.filter(coleccion = id_coleccion).order_by('nombre'),
+        'coleccion_unica': Coleccion.objects.get(nombre_real=nombre_coleccion),
+        'imagen' : Foto.objects.filter(coleccion__nombre_real = nombre_coleccion).order_by('nombre'),
     }
     return render(request, 'inicio/coleccion.html', context)
 
