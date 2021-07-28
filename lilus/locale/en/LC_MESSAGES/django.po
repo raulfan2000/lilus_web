@@ -1,0 +1,120 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-01-14 02:24+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: inicio/models.py:21 inicio/models.py:38 inicio/models.py:60
+msgid "ID"
+msgstr "ID"
+
+#: inicio/templates/inicio/base.html:81 inicio/templates/inicio/nav.html:8
+msgid "Buscar"
+msgstr "Search"
+
+#: inicio/templates/inicio/base.html:85
+msgid "Prueba con"
+msgstr "Try this"
+
+#: inicio/templates/inicio/base.html:144
+msgid "INFORMACIÓN"
+msgstr "INFORMATION"
+
+#: inicio/templates/inicio/base.html:146 inicio/templates/inicio/nav.html:122
+msgid "Aviso legal"
+msgstr "Legal warning"
+
+#: inicio/templates/inicio/base.html:147 inicio/templates/inicio/nav.html:123
+msgid "Política de cookies"
+msgstr "Cookies policy"
+
+#: inicio/templates/inicio/base.html:148
+msgid "Contacto"
+msgstr "Contact"
+
+#: inicio/templates/inicio/base.html:152 inicio/templates/inicio/nav.html:57
+#: inicio/templates/inicio/nav.html:117
+msgid "CONTACTO"
+msgstr "CONTACT"
+
+#: inicio/templates/inicio/base.html:155 inicio/templates/inicio/nav.html:126
+msgid "Teléfono"
+msgstr "Phone number"
+
+#: inicio/templates/inicio/inicio.html:29
+msgid "Detalles que marcan la diferencia"
+msgstr "Details that make the difference"
+
+#: inicio/templates/inicio/inicio.html:30
+msgid "Nueva colección"
+msgstr "new collection"
+
+#: inicio/templates/inicio/inicio.html:31
+msgid "COMUNIÓN 2020"
+msgstr "COMMUNION 2020"
+
+#: inicio/templates/inicio/inicio.html:46
+msgid "Alta costura en moda infantil"
+msgstr "Haute couture fashion"
+
+#: inicio/templates/inicio/inicio.html:47
+msgid "Descarga nuestro catálogo"
+msgstr "Download our catalog"
+
+#: inicio/templates/inicio/inicio.html:48
+msgid "Descargar"
+msgstr "Download"
+
+#: inicio/templates/inicio/nav.html:13 inicio/templates/inicio/nav.html:81
+msgid "INICIO"
+msgstr "HOME"
+
+#: inicio/templates/inicio/nav.html:14 inicio/templates/inicio/nav.html:82
+msgid "VESTIDOS DE COMUNIÓN"
+msgstr "COMMUNION DRESSES"
+
+#: inicio/templates/inicio/nav.html:22 inicio/templates/inicio/nav.html:36
+#: inicio/templates/inicio/nav.html:50 inicio/templates/inicio/nav.html:89
+#: inicio/templates/inicio/nav.html:100 inicio/templates/inicio/nav.html:110
+msgid "Catálogo 2020"
+msgstr "2020 catalog"
+
+#: inicio/templates/inicio/nav.html:28 inicio/templates/inicio/nav.html:93
+msgid "VESTIDOS DE VERANO"
+msgstr "SUMMER DRESSES"
+
+#: inicio/templates/inicio/nav.html:42 inicio/templates/inicio/nav.html:103
+msgid "VESTIDOS DE BAUTIZO"
+msgstr "BAPTISM DRESSES"
+
+#: inicio/templates/inicio/nav.html:56 inicio/templates/inicio/nav.html:113
+msgid "BLOG"
+msgstr "BLOG"
+
+#: lilus/settings.py:129
+msgid "Español"
+msgstr "Spanish"
+
+#: lilus/settings.py:130
+msgid "Inglés"
+msgstr "English"
+
+#~ msgid "Ver nuestros puntos de venta"
+#~ msgstr "See our points of sale"
+
+#~ msgid "Ver ahora"
+#~ msgstr "watch now"
