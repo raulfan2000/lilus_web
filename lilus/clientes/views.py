@@ -10,7 +10,7 @@ from django.db.models import Q
 @login_required
 def dashboard(request):
     context = {
-        'coleccion': Coleccion.objects.filter(activa=True).order_by('-nombre'),
+        'coleccion': Coleccion.objects.all().order_by('-nombre'),
     }
     return render(request, 'clientes/dashboard.html', context)
 
@@ -36,7 +36,7 @@ def buscador(request):
     )
     context = {
         'busqueda': busqueda,
-        'coleccion': Coleccion.objects.filter(activa=True).order_by('-nombre'),
+        'coleccion': Coleccion.objects.all().order_by('-nombre'),
         'imagenes': Foto.objects.filter(qset, coleccion__activa=True).distinct(),
     }
 
