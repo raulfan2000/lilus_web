@@ -3,6 +3,7 @@ lilus/lilus/settings.py
 lilus/__pycache__/
 lilus/lilus/__pycache__/
 lilus/inicio/__pycache__/
+lilus/clientes/__pycache__/
 lilus/migrations/
 lilus/media/
 lilus/static/
