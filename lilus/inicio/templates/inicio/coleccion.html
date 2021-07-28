@@ -1,0 +1,52 @@
+{% extends "inicio/base.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+	{% if coleccion_unica.tipo == 'Verano' %}.menuVerano {% elif coleccion_unica.tipo == 'Comunion' %} .menuComunion {% else %} .menuBautizo {% endif %}{
+		background: #000!important;
+	}
+	{% if coleccion_unica.tipo == 'Verano' %}.menuVerano {% elif coleccion_unica.tipo == 'Comunion' %} .menuComunion {% else %} .menuBautizo {% endif %} > a{
+		color: #fff!important;
+	}
+	{% if coleccion_unica.tipo == 'Verano' %}.menuVeranoMovil {% elif coleccion_unica.tipo == 'Comunion' %} .menuComunionMovil {% else %} .menuBautizoMovil {% endif %}{
+		color: #dc3545!important;
+	}
+</style>
+
+
+<div class="container">
+	<div class="row">
+
+		<div class="col-12 nombreColeccion mt-3 mb-3 pt-2">
+			<p class="m-0" style="text-transform:uppercase">COLECCIÓN {{coleccion_unica.nombre}}</p>
+		</div>
+
+		<div class="col-12 pl-2 pr-2">
+			<div class="tz-gallery">
+					<div class="row m-0">
+						{% for imagen in imagen %}
+							<div class="col-md-4 col-lg-3 col-6  p-1 p-lg-2">
+									<div class="card border-0" style=" position:relative">
+											<a class="lightbox" href="{{ imagen.imagen.url }}">
+												<div class="fotoAlbum"style="background: url({{ imagen.imagen.url }}) no-repeat;background-size: cover; background-position: center !important;"></div>
+											</a>
+											<button href="#" class="agregar-favoritos favoritosBotonAnadir desactiveFav shadow-sm " id="{{ imagen.id }}" value="{{ imagen.imagen.url }}">
+												<i class="far fa-heart"></i>
+											</button>
+									</div>
+									<p class="nombreVestido">
+										{{ imagen.nombre }}
+									</p>
+							</div>
+						{% empty %}
+							<div class="text-center" style="width:100%;height:calc(100vh - 365px);">Aún no hay imágenes disponibles para esta colección</div>
+						{% endfor %}
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

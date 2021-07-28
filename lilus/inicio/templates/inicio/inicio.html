@@ -1,0 +1,160 @@
+{% extends "inicio/base.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+
+<style>
+	.menuInicio{
+		background: #000!important;
+	}
+	.menuInicio > a{
+		color: #fff!important;
+	}
+	.menuInicioMovil{
+		color: #dc3545!important;
+	}
+	#fondo{
+		padding-bottom:0!important
+	}
+</style>
+
+<div class="col-12 videoPortada m-0 p-0 float-left">
+	<div class="videoContainer"></div>
+	<div class="fondoNegro" class="float-left">
+		<div class="nuevaColeccion">
+			<p>{% trans "Detalles que marcan" %} <br> {% trans "la diferencia"%}</p>
+			<h5>{% trans "Nueva colección" %}</h5>
+			<a href="{% url 'coleccion' 'comunion 2021' %}" class="btn btn-light pt-3 pb-3 rounded-0 shadow-sm border-0"role="button">{% trans "COMUNIÓN 2021" %}</a>
+		</div>
+	</div>
+</div>
+
+
+<div class="col-12">
+	<div class="container p-0 mb-3">
+		<div class="row">
+			<!--
+			<div class="col-md-5 p-md-5 p-4  encuentranosTexto">
+				<div>
+					<h1 class="mb-0">{% trans "Alta costura en"%} <br> {% trans "moda infantil" %}</h1>
+					<h2 class="mb-0 mt-md-3 mt-2">{% trans "Descarga nuestro catálogo" %}</h2>
+					<a role="button" href="{% static 'inicio/pdf/LILUS2020.pdf' %}" download="LILUS2020" class="btn btn-dark px-4 py-2 rounded-0 mt-md-4 mt-3">{% trans "Descargar" %}</a>
+				</div>
+			</div>
+
+			<div class="col-md-7 p-0">
+
+				<div class="row m-0">
+			-->
+					<div class="col-md-4 p-md-5 p-4 encuentranosImg">
+						<div style="background: url({% static 'inicio/img/30899.jpg'%}) no-repeat;background-size: cover; background-position:center !important;"></div>
+					</div>
+					<div class="col-md-4 p-md-5 p-4 encuentranosImg">
+						<div style="background: url({% static 'inicio/img/LILUS-116.jpg'%}) no-repeat;background-size: cover; background-position:center !important;"></div>
+					</div>
+					<div class="col-md-4 p-md-5 p-4  encuentranosImg">
+						<div style="background: url({% static 'inicio/img/30923.jpg'%}) no-repeat;background-size: cover; background-position:center !important;"></div>
+					</div>
+				
+			
+
+
+			<div class="col-md-6 offset-md-2 fotoSecundariaIzq p-md-5 p-4"> 
+				<div style="background: url({% static 'inicio/img/LILUS-221.jpg'%}) no-repeat;background-size: cover; background-position: bottom !important;"></div>
+			</div>
+
+
+			<div class="col-md-6 offset-md-4 fotoSecundariaIzq p-md-5 p-4"> 
+				<div style="background: url({% static 'inicio/img/LILUS-233.jpg'%}) no-repeat;background-size: cover; background-position: center !important;"></div>
+			</div>
+
+
+
+
+		</div>
+	</div>
+</div>
+<!--
+<div class="col-12">
+	<div class="container p-0">
+		<div class="row m-0 p-0">
+
+			<div class="col-12 p-0 ">
+				<div class="row m-0">
+					<div class="col-md-6 fotoSecundariaIzq p-md-5 p-4">
+						<div style="background: url({% static 'inicio/img/fotoSecundaria.jpg'%}) no-repeat;background-size: cover; background-position: center !important;"></div>
+					</div>
+					<div class="col-md-6 p-0 fotoSecundariaDer">
+						<div class="row m-0">
+							<div class="derechaTexto p-md-5 p-4 ">
+								<div>
+									<h1 class="mb-0">{% trans "Alta costura en moda infantil" %}</h1>
+									<h2 class="mb-0 mt-md-3 mt-2">{% trans "Descarga nuestro catálogo" %}</h2>
+									<a role="button" href="{% static 'inicio/pdf/LILUS2020.pdf' %}" download="LILUS2020" class="btn btn-dark px-4 py-2 rounded-0 mt-md-4 mt-3">{% trans "Descargar" %}</a>
+								</div>
+							</div>
+							<div class="derechaImg p-md-5 p-4 ">
+								<div style="background: url({% static 'inicio/img/fotoSecundaria2.jpg'%}) no-repeat;background-size: cover; background-position:center !important;"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-5 p-md-5 p-4  encuentranosTexto">
+				<div>
+					<h1 class="mb-0">{% trans "Dónde puedes encontrarnos" %}</h1>
+					<h2 class="mb-0 mt-md-3 mt-2">{% trans "Disponible próximamente" %}</h2>
+					<button class="btn btn-dark px-4 py-2 rounded-0 mt-md-4 mt-3">{% trans "Próximamente" %}</button>
+				</div>
+			</div>
+
+			<div class="col-md-7 p-0">
+				<div class="row m-0">
+					<div class="col-md-6 p-md-5 p-4 encuentranosImg">
+						<div style="background: url({% static 'inicio/img/fotoEncontrar2.jpg'%}) no-repeat;background-size: cover; background-position:center !important;"></div>
+					</div>
+					<div class="col-md-6 p-md-5 p-4  encuentranosImg">
+						<div style="background: url({% static 'inicio/img/fotoEncontrar1.jpg'%}) no-repeat;background-size: cover; background-position:center !important;"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-12 p-md-5 p-4 redesSocialesTexto">
+				<div>
+					<h1 class="mb-0">{% trans "Síguenos en redes sociales" %}</h1>
+					<h2 class="mb-0 mt-2">{% trans "Puedes seguirnos en" %}
+						<a target="_blank" href="https://www.facebook.com/lilusmodainfantil/">Facebook</a>
+					</h2>
+				</div>
+			</div>
+
+			
+
+			<div class="col-md-4 p-md-5 p-4 ">
+				<div class="bg-light p-0 m-0" style="height:300px">
+					<iframe width="100%" class="p-0 m-0" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flilusmodainfantil%2Fposts%2F149343116486769&width=500"></iframe>
+				</div>
+			</div>
+
+			<div class="col-md-4 p-md-5 p-4 ">
+				<div class="bg-light p-0 m-0" style="height:300px">
+					<iframe width="100%" class="p-0 m-0" data-show-text="true" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flilusmodainfantil%2Fposts%2F149023906518690&width=500"></iframe>
+				</div>
+			</div>
+
+			<div class="col-md-4 p-md-5 p-4 ">
+				<div class="bg-light p-0 m-0" style="height:300px">
+					<iframe width="100%" class="p-0 m-0" data-show-text="true" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flilusmodainfantil%2Fposts%2F148662349888179&width=500"></iframe>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</div>
+
+-->
+
+
+{% endblock %}
