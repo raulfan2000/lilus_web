@@ -94,13 +94,7 @@ def coleccion(request, nombre_coleccion):
     return render(request, 'inicio/coleccion.html', context)
 
 
-def blog(request):
-    context = {
-        'coleccion' : Coleccion.objects.filter(activa = True).order_by('-nombre'),
-    }
-    return render(request, 'inicio/blog.html', context)
-
-
+ 
 def cookies(request):
     context = {
         'coleccion' : Coleccion.objects.filter(activa = True).order_by('-nombre'),
@@ -115,8 +109,3 @@ def avisoLegal(request):
     return render(request, 'inicio/privacidad.html', context)
 
 
-def puntosDeVenta(request):
-    context = {
-        'coleccion' : Coleccion.objects.filter(activa = True).order_by('-nombre'),
-    }
-    return render(request, 'inicio/puntosDeVenta.html', context)

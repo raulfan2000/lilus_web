@@ -1,0 +1,58 @@
+{% extends "inicio/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<style>
+	body{
+		background:#f8f9fa!important
+	}
+	.menuCliente{
+		background: #000!important;
+	}
+	.menuCliente > a{
+		color: #fff!important;
+	}
+	.menuClienteMovil{
+		color: #dc3545!important;
+	}
+</style>
+<div class="container">
+	<form method="post" action="{% url 'login' %}">{% csrf_token %}
+		<div class="row m-0 pt-5 pb-5">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+
+				{% if user.is_authenticated %}
+					<div class="row m-0 bg-white p-4">
+						<div class="col-12 p-0">
+							<p class="textoFormulario mb-1">Ya has iniciado sesión, ¿deseas <a href="{% url 'logout' %}">Cerrar Sesión</a>?</p>
+						</div>
+					</div>
+				{% else %}
+					<h5>ACCEDE A TU CUENTA</h5>
+					<div class="row m-0 bg-white p-4">
+						{% if form.errors %}
+							<div class="alert alert-danger rounded-0" role="alert">
+							  Por favor, introduzca un nombre de usuario y clave correctos. Observe que ambos campos pueden ser sensibles a mayúsculas.
+							</div>
+						{% endif %}
+
+						<div class="col-12 p-0">
+							<p class="textoFormulario mb-1">Usuario</p>
+							<input type="text" name="username" autofocus class="formularioContacto" required id="id_username">
+						</div>
+						<div class="col-12 p-0 mt-4">
+							<p class="textoFormulario mb-1">Contraseña</p>
+							<input type="password" name="password" class="formularioContacto" required id="id_password">
+						</div>
+						<div class="col-12 p-0">
+							<input type="hidden" name="next" value="{{ next }}" />
+							<button class="btn-dark btn border-0 rounded-0 float-right mt-3 px-5 py-3" type="submit">Acceder</button>
+						</div>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</form>
+</div>
+{% endblock %}

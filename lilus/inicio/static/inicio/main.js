@@ -18,23 +18,23 @@ $(window).scroll(function(){
 $('#ponerMenu').click(function () {
 	if($('#sidebar').hasClass('active')){
 		$('#sidebar, .menuPalo1, .menuPalo2, .menuPalo3').removeClass('active');
-		$('html,body').css('overflow', 'scroll');
+		$('html').css('overflow-y', 'scroll');
 	}
 	else{
 		$('#sidebar, .menuPalo1, .menuPalo2, .menuPalo3').addClass('active');
-		$('html,body').css('overflow', 'hidden');
+		$('html').css('overflow-y', 'hidden');
 	}
 });
 
 $(document).ready(function () {
 	$('#activarBuscadorMovil, #activarBuscador').on('click', function () {
 			$('#buscadorMovil, .overlay').addClass('active');
-			$('html,body').css('overflow', 'hidden');
+			$('html').css('overflow-y', 'hidden');
 			$('#inputBuscador').focus();
 	});
 	$('#cerrarBuscadorMovil, .overlay').on('click', function () {
 			$('#buscadorMovil, .overlay').removeClass('active');
-			$('html,body').css('overflow', 'scroll');
+			$('html').css('overflow-y', 'scroll');
 	});
 
 	$('.agregar-favoritos').on('click', function () {

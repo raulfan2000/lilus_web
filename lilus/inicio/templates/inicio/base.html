@@ -49,7 +49,6 @@
 		</a>
 		<!-- marcador de idioma
 		<div class="idiomaDiv">
-				<i class="fas fa-caret-down"></i>
 				<i class="fas fa-globe-europe"></i>
 				<form action="{% url 'set_language' %}" method="post" id="submitIdioma" >{% csrf_token %}
 					<input name="next" type="hidden" value="{{ redirect_to }}" />
@@ -65,7 +64,8 @@
 					</select>
 				</form>
 		</div>
-		-->
+		 -->
+
 		<!-- navegador -->
 		{% include 'inicio/nav.html' %}
 		<div class="overlay"></div>
@@ -109,27 +109,29 @@
 			</div>
 		</div>
 		<!-- contenido -->
+
 		<div class="row ml-0 mr-0 pb-3" id="fondo">
 			{% block content %}
 			{% endblock %}
 		</div>
+
 		<!-- scripts-->
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
 		<script> baguetteBox.run('.tz-gallery'); </script>
-		<script type="text/javascript" src="{% static 'inicio/main.js' %}"></script><script type="text/javascript"></script>
+		<script type="text/javascript" src="{% static 'inicio/main.js' %}"></script>
 	</body>
 	<!-- Footer -->
 	<footer class="page-footer font-small pt-4">
 	  <div class="container text-center text-md-left">
 	    <div class="row">
-				<div class="col-md-3"></div>
+			<div class="col-md-3"></div>
 	      <div class="col-md-3 mt-md-0 mt-3">
 	        <h5 class="text-uppercase text-light" style="font-size: 15px;">{% trans "INFORMACIÓN" %}</h5>
 	        <p class="text-light" style="font-size: 12px;">
-						<a href="{% url 'avisoLegal' %}"style="color:#fff;">{% trans "Aviso legal" %}</a><br>
+					<a href="{% url 'avisoLegal' %}"style="color:#fff;">{% trans "Aviso legal" %}</a><br>
 				    <a href="{% url 'cookies' %}"style="color:#fff;">{% trans "Política de cookies" %}</a><br>
 				    <a href="{% url 'contacto' %}"style="color:#fff;">{% trans "Contacto" %}</a><br>
 	        </p>

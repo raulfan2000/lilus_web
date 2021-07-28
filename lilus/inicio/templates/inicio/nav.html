@@ -50,8 +50,8 @@
 				</div>
 			</ul>
 		</li>
-		<li id="m5" class="menuBlog"><a href="{% url 'blog' %}">{% trans "BLOG" %}</a></li>
 		<li id="m6" class="menuContacto"><a href="{% url 'contacto'%}" class="color: #000">{% trans "CONTACTO" %}</a></li>
+		<li id="m7" class="menuCliente"><a href="{% url 'login'%}" class="color: #000">{% trans "CLIENTE" %}</a></li>
 	</ul>
 </nav>
 
@@ -81,7 +81,7 @@
 						<li><a href="{% url 'coleccion' coleccion.nombre_real%}">· {{coleccion.nombre}}</a></li>
 					{% endif %}
 				{% endfor %}
-					<li class="mb-3"> <a role="button" href="{% static 'inicio/pdf/LILUS2020.pdf' %}" download="LILUS2020" class="buttonCatalogoMovil">{% trans "Catálogo 2020" %}</a></li>
+					<li class="mb-3"> <a role="button" href="{% static 'inicio/pdf/LILUS2020.pdf' %}" download="LILUS2020" class="buttonCatalogoMovil rounded-0">{% trans "Catálogo 2020" %}</a></li>
 			</ul>
 		</li>
 
@@ -103,14 +103,14 @@
 				{% endfor %}
 			</ul>
 		</li>
-		<li><a  class="menuBlogMovil" href="{% url 'blog' %}">{% trans "BLOG" %}</a></li>
 		<li><a class="menuContactoMovil" href="{% url 'contacto'%}">{% trans "CONTACTO" %}</a></li>
+		<li><a  class="menuClienteMovil" href="{% url 'login' %}">{% trans "CLIENTE" %}</a></li>
 	</ul>
 
 	<div class="row m-0 px-4">
 		<div class="col-12 border-top p-0 border-bottom">
-			<p class="textoFormulario mb-0 mt-3">{% trans "Aviso legal" %}</p>
-			<p class="textoFormulario mb-0">{% trans "Política de cookies" %}</p>
+			<a class="textoFormulario mb-0 mt-3">{% trans "Aviso legal" %}</a>
+			<a class="textoFormulario mb-0">{% trans "Política de cookies" %}</a>
 			<p class="mt-2" style="font-size: 12px;color:#747474">
 				E-mail: <a href="mailto:lilus@lilus.es" style="color:#747474; font-size: 12px">lilus@lilus.es</a> <br>
 				{% trans "Teléfono" %}: <a href="tel:+34965487509" style="color:#747474;font-size: 12px">965 48 75 09</a> <br>
