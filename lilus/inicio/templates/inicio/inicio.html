@@ -1,39 +1,38 @@
-{% extends "inicio/base.html" %}
-{% load static %}
-{% load i18n %}
-{% block content %}
+{% extends "inicio/base.html" %} {% load static %} {% load i18n %} {% block content %}
 
 <style>
-	.menuInicio{
-		background: #000!important;
-	}
-	.menuInicio > a{
-		color: #fff!important;
-	}
-	.menuInicioMovil{
-		color: #dc3545!important;
-	}
-	#fondo{
-		padding-bottom:0!important
-	}
+  .menuInicio {
+    background: #000 !important;
+  }
+  .menuInicio > a {
+    color: #fff !important;
+  }
+  .menuInicioMovil {
+    color: #dc3545 !important;
+  }
+  #fondo {
+    padding-bottom: 0 !important;
+  }
 </style>
 
 <div class="col-12 videoPortada m-0 p-0 float-left">
-	<div class="videoContainer"></div>
-	<div class="fondoNegro" class="float-left">
-		<div class="nuevaColeccion">
-			<p>{% trans "Detalles que marcan" %} <br> {% trans "la diferencia"%}</p>
-			<h5>{% trans "Nueva colección" %}</h5>
-			<a href="{% url 'coleccion' 'comunion 2021' %}" class="btn btn-light pt-3 pb-3 rounded-0 shadow-sm border-0"role="button">{% trans "COMUNIÓN 2021" %}</a>
-		</div>
-	</div>
+  <div class="videoContainer"></div>
+  <div class="fondoNegro" class="float-left">
+    <div class="nuevaColeccion">
+      <p>
+        {% trans "Detalles que marcan" %} <br />
+        {% trans "la diferencia"%}
+      </p>
+      <!--- <h5>{% trans "Nueva colección" %}</h5>
+			<a href="{% url 'coleccion' 'comunion 2021' %}" class="btn btn-light pt-3 pb-3 rounded-0 shadow-sm border-0"role="button">{% trans "COMUNIÓN 2021" %}</a> -->
+    </div>
+  </div>
 </div>
 
-
 <div class="col-12">
-	<div class="container p-0 mb-3">
-		<div class="row">
-			<!--
+  <div class="container p-0 mb-3">
+    <div class="row">
+      <!--
 			<div class="col-md-5 p-md-5 p-4  encuentranosTexto">
 				<div>
 					<h1 class="mb-0">{% trans "Alta costura en"%} <br> {% trans "moda infantil" %}</h1>
@@ -45,7 +44,7 @@
 			<div class="col-md-7 p-0">
 
 				<div class="row m-0">
-			-->
+			
 					<div class="col-md-4 p-md-5 p-4 encuentranosImg">
 						<div style="background: url({% static 'inicio/img/30899.jpg'%}) no-repeat;background-size: cover; background-position:center !important;"></div>
 					</div>
@@ -55,24 +54,18 @@
 					<div class="col-md-4 p-md-5 p-4  encuentranosImg">
 						<div style="background: url({% static 'inicio/img/30923.jpg'%}) no-repeat;background-size: cover; background-position:center !important;"></div>
 					</div>
-				
-			
+					<div class="col-md-6 offset-md-4 fotoSecundariaIzq p-md-5 p-4">
+						<div
+							style="background: url({% static 'inicio/img/LILUS-233.jpg'%}) no-repeat;background-size: cover; background-position: center !important;">
+						</div>
+					</div>
+			-->
 
-
-			<div class="col-md-6 offset-md-2 fotoSecundariaIzq p-md-5 p-4"> 
-				<div style="background: url({% static 'inicio/img/LILUS-221.jpg'%}) no-repeat;background-size: cover; background-position: bottom !important;"></div>
-			</div>
-
-
-			<div class="col-md-6 offset-md-4 fotoSecundariaIzq p-md-5 p-4"> 
-				<div style="background: url({% static 'inicio/img/LILUS-233.jpg'%}) no-repeat;background-size: cover; background-position: center !important;"></div>
-			</div>
-
-
-
-
-		</div>
-	</div>
+      <div class="col-md-12 p-md-5 p-4">
+        <img src="{% static 'inicio/img/fotoSecunNueva.jpg' %}" class="img-fluid" alt="" />
+      </div>
+    </div>
+  </div>
 </div>
 <!--
 <div class="col-12">
@@ -155,6 +148,5 @@
 </div>
 
 -->
-
 
 {% endblock %}
