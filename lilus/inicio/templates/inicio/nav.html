@@ -19,12 +19,12 @@
           {% for coleccion in coleccion %} {% if coleccion.tipo == 'Comunion' %}
           <li><a href="{% url 'coleccion' coleccion.nombre_real %}">{{coleccion.nombre}}</a></li>
           {% endif %} {% endfor %}
-          <img class="imagenMenu" src="{% static 'inicio/img/portadaComunion.jpg' %}" />
+          <img class="imagenMenu" src="{% static 'inicio/img/portadaComunion.png' %}" />
         </div>
       </ul>
     </li>
     <li id="m3" class="menuVerano">
-      <a>{% trans "VERANO" %}</a>
+      <a>{% trans "CEREMONIA" %}</a>
       <ul>
         <div class="lineaSeparadoraMenu shadow">
           {% for coleccion in coleccion %} {% if coleccion.tipo == 'Verano' %}
@@ -86,7 +86,7 @@
     </li>
 
     <li>
-      <a class="menuVeranoMovil">{% trans "VERANO" %}</a>
+      <a class="menuVeranoMovil">{% trans "CEREMONIA" %}</a>
       <ul>
         {% for coleccion in coleccion %} {% if coleccion.tipo == 'Verano' %}
         <li><a href="{% url 'coleccion' coleccion.nombre_real%}">· {{coleccion.nombre}}</a></li>
